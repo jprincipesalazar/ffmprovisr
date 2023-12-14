@@ -76,16 +76,16 @@
       <div class="hiding">
         <h5>Estructura básica de una línea de comando en FFmpeg</h5>
         <p>Sí, puede parecer intimidante, pero en esencia un comando de FFmpeg es relativamente simple. Después de installar FFmpeg (puedes ver las instrucciones en ingles <a href="https://avpres.net/FFmpeg/#ch1" target="_blank">aquí</a>), puedes "llamar" al programa al tipear <code>ffmpeg</code> en tu interfaz de línea de comandos.</p>
-        <p>Cada instrucción que le das a FFmpeg trabaja como Subsequently, each instruction that you supply to FFmpeg is actually a pair: a flag, which designates the <em>type</em> of action you want to carry out; and then the specifics of that action. Flags are always prepended with a hyphen.</p>
-        <p>For example, in the instruction <code>-i <em>input_file.ext</em></code>, the <code>-i</code> flag tells FFmpeg that you are supplying an input file, and <code>input_file.ext</code> states which file it is.</p>
-        <p>Likewise, in the instruction <code>-c:v prores</code>, the flag <code>-c:v</code> tells FFmpeg that you want to encode the video stream, and <code>prores</code> specifies which codec is to be used. (<code>-c:v</code> is shorthand for <code>-codec:v</code>/<code>-codec:video</code>).</p>
-        <p>A very basic FFmpeg command looks like this:</p>
+        <p>Cada instrucción que le das a FFmpeg trabaja como una dupla. (1) Una bandera que indica el <em>tipo</em> de acción que quieres realizar; (2) los valores que afectarán a cada bandera. Las banderas siempre están precedidas por un guion.</p>
+        <p>Por ejemplo, en la instrucción <code>-i <em>input_file.ext</em></code>, la bandera <code>-i</code> le dice a FFmpeg que estás ingresando un documento, e <code>documento_ingreso.ext</code> es el nombre del documento ingresado.</p>
+        <p>De manera similar, en la instrucción <code>-c:v prores</code>, la bandera <code>-c:v</code> le dice a FFmpeg que quieres codificar el contenido de video y <code>prores</code> especifíca el codec que quieres que se use en el proceso (<code>-c:v</code> es el abreviado de <code>-codec:v</code>/<code>-codec:video</code>).</p>
+        <p>Una línea de comando básico de FFmpeg luce así:</p>
         <dl>
-          <dt>ffmpeg</dt><dd>starts the command</dd>
-          <dt>-i <em>input_file.ext</em></dt><dd>path and name of the input file</dd>
-          <dt><em>-flag some_action</em></dt><dd>tell FFmpeg to do something, by supplying a valid flag and action</dd>
-          <dt><em>output_file.ext</em></dt><dd>path and name of the output file.<br>
-            Because this is the last part of the command, the filename you type here does not have a flag designating it as the output file.</dd>
+          <dt>ffmpeg</dt><dd>inicia el comando</dd>
+          <dt>-i <em>documento_ingreso.ext</em></dt><dd>ruta y nombre del documento de ingreso</dd>
+          <dt><em>-bandera una_acción</em></dt><dd>le dice a FFmpeg que haga algo a través de una bandera y acción válida.</dd>
+          <dt><em>documento_salida.ext</em></dt><dd>ruta y nombre del documento de salida.<br>
+            Al ser esta la última parte del comando, el nombre del documento no tiene una bandera que indica que es el documento de salida.</dd>
         </dl>
         <p class="link"></p>
       </div>
