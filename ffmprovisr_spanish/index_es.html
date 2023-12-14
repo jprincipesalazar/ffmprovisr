@@ -75,8 +75,8 @@
       <input type="checkbox" id="basic-structure">
       <div class="hiding">
         <h5>Estructura básica de una línea de comando en FFmpeg</h5>
-        <p>Sí, puede parecer intimidante, pero en esencia un comando de FFmpeg es relativamente simple. Después de installar FFmpeg (puedes ver las instrucciones en ingles <a href="https://avpres.net/FFmpeg/#ch1" target="_blank">aquí</a>), puedes llamar al programa al tipear <code>ffmpeg</code> en tu interfaz de línea de comandos.</p>
-        <p>Subsequently, each instruction that you supply to FFmpeg is actually a pair: a flag, which designates the <em>type</em> of action you want to carry out; and then the specifics of that action. Flags are always prepended with a hyphen.</p>
+        <p>Sí, puede parecer intimidante, pero en esencia un comando de FFmpeg es relativamente simple. Después de installar FFmpeg (puedes ver las instrucciones en ingles <a href="https://avpres.net/FFmpeg/#ch1" target="_blank">aquí</a>), puedes "llamar" al programa al tipear <code>ffmpeg</code> en tu interfaz de línea de comandos.</p>
+        <p>Cada instrucción que le das a FFmpeg trabaja como Subsequently, each instruction that you supply to FFmpeg is actually a pair: a flag, which designates the <em>type</em> of action you want to carry out; and then the specifics of that action. Flags are always prepended with a hyphen.</p>
         <p>For example, in the instruction <code>-i <em>input_file.ext</em></code>, the <code>-i</code> flag tells FFmpeg that you are supplying an input file, and <code>input_file.ext</code> states which file it is.</p>
         <p>Likewise, in the instruction <code>-c:v prores</code>, the flag <code>-c:v</code> tells FFmpeg that you want to encode the video stream, and <code>prores</code> specifies which codec is to be used. (<code>-c:v</code> is shorthand for <code>-codec:v</code>/<code>-codec:video</code>).</p>
         <p>A very basic FFmpeg command looks like this:</p>
