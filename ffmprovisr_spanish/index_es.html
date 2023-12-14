@@ -70,7 +70,7 @@
 
     <div class="well">
     <h2 id="basics">Fundamentos de FFmpeg</h2>
-      <!-- Estructura básica de un commando en FFmpeg -->
+      <!-- Estructura básica de un comando en FFmpeg -->
       <label class="recipe" for="basic-structure">Estructura básica de una línea de comando en FFmpeg</label>
       <input type="checkbox" id="basic-structure">
       <div class="hiding">
@@ -89,22 +89,23 @@
         </dl>
         <p class="link"></p>
       </div>
-      <!-- End Basic structure of an FFmpeg command -->
+      <!-- Fin de la estructura básica de un comando en FFmpeg -->
 
-      <!-- Streaming vs. Saving -->
-      <label class="recipe" for="streaming-saving">Streaming vs. Saving</label>
+      <!-- Reproducir vs. Guardar -->
+      <label class="recipe" for="streaming-saving">Reproducir vs. Guardar</label>
       <input type="checkbox" id="streaming-saving">
       <div class="hiding">
-        <h5>Streaming vs. Saving</h5>
-        <p>FFplay allows you to stream created video and FFmpeg allows you to save video.</p>
-        <p>The following command creates and saves a 10-second video of SMPTE bars:</p>
-        <p><code>ffmpeg -f lavfi -i smptebars=size=640x480 -t 5 output_file</code></p>
-        <p>This command plays and streams SMPTE bars but does not save them on the computer:</p>
+        <h5>Reproducir vs. Guardar</h5>
+        <p>FFplay te permite reproducir videos ya creados, mientras que FFmpeg te permite guardar el video.</p>
+        <p>El siguiente comando crea y guarda un video de 10 segundos de barras SMPTE:</p>
+        <p><code>ffmpeg -f lavfi -i smptebars=size=640x480 -t 10 documento_salida.ext</code></p>
+        <dt>¡No olvides!</dt><dd>Debes cambiar <code>documento_salida.ext</code>por el nombre que quieres que tenga tu documento de salida</dd>
+        <p>El siguiente comando reproduce y transmite las barras SMPTE, pero no guarda el documento en tu computadora:</p>
         <p><code>ffplay -f lavfi smptebars=size=640x480</code></p>
-        <p>The main difference is small but significant: the <code>-i</code> flag is required for FFmpeg but not required for FFplay. Additionally, the FFmpeg script needs to have <code>-t 5</code> and <code>output.mkv</code> added to specify the length of time to record and the place to save the video.</p>
+        <p>La pequeña pero importante diferencia: la bandera <code>-i</code> es necesaria para FFmpeg, pero no para FFplay. Además, la línea de comando FFmpeg necesita tener <code>-t 10</code> y <code>documento_salida.ext</code> para especificar la duración del video y la ruta donde será guardado.</p>
         <p class="link"></p>
       </div>
-      <!-- End Streaming vs. Saving -->
+      <!-- Fin Reproducir vs. Guardar -->
     </div>
     <div class="well">
 
