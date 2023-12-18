@@ -599,7 +599,7 @@
     <h2 id="video-properties">Cambio de propiedades de vídeo</h2>
 
     <!-- 4:3 a 16:9 -->
-    <label class="recipe" for="SD_HD">Transformar relación de aspecto 4:3 a 16:9 con pillarbox</label>
+    <label class="recipe" for="SD_HD">Transformar relación de aspecto 4:3 a 16:9 por medio del formato pillarbox</label>
     <input type="checkbox" id="SD_HD">
     <div class="hiding">
       <h5>Transformar relación de aspecto 4:3 a 16:9 con pillarbox</h5>
@@ -618,26 +618,26 @@
     <!-- Fin 4:3 to 16:9 -->
 
     <!-- 16:9 to 4:3 -->
-    <label class="recipe" for="HD_SD">Transform 16:9 aspect ratio video into 4:3 with letterbox</label>
+    <label class="recipe" for="HD_SD">Transformar relación de aspecto 16:9 a 4:3 por medio del formato letterbox.</label>
     <input type="checkbox" id="HD_SD">
     <div class="hiding">
-      <h5>Transform 16:9 aspect ratio video into 4:3 with letterbox</h5>
-      <p>Transform a video file with 16:9 aspect ratio into a video file with 4:3 aspect ratio by correct letterboxing.</p>
+      <h5>Transformar relación de aspecto 16:9 a 4:3 por medio del formato letterbox.</h5>
+      <p>Transforme un archivo de vídeo con una relación de aspecto de 16:9 en un archivo de vídeo con una relación de aspecto de 4:3 por medio del formato letterbox correcto.</p>
       <p><code>ffmpeg -i <em>documento_ingreso</em> -filter:v "pad=iw:iw*3/4:(ow-iw)/2:(oh-ih)/2" -c:a copy <em>documento_salida</em></code></p>
       <dl>
         <dt>ffmpeg</dt><dd>inicia el commando</dd>
         <dt>-i <em>documento_ingreso</em></dt><dd>ruta y nombre del documento de ingreso file</dd>
-        <dt>-filter:v "pad=iw:iw*3/4:(ow-iw)/2:(oh-ih)/2"</dt><dd>video padding<br>
-        This resolution independent formula is actually padding any aspect ratio into 4:3 by letterboxing, because the video filter uses relative values for input width (iw), input height (ih), output width (ow) and output height (oh).</dd>
-        <dt>-c:a copy</dt><dd>re-encodes using the same audio codec<br>
-        For silent videos you can replace <code>-c:a copy</code> by <code>-an</code>.</dd>
+        <dt>-filter:v "pad=iw:iw*3/4:(ow-iw)/2:(oh-ih)/2"</dt><dd>relleno de video<br>
+         Esta fórmula independiente de la resolución en realidad está rellenando cualquier relación de aspecto en 4:3 por medio del formato letterboxing, porque el filtro de vídeo utiliza valores relativos para el ancho de ingreso (iw), el alto de ingreso (ih), el ancho de salida (ow) y el alto de salida (oh). (oh).</dd>
+        <dt>-c:a copy</dt><dd>vuelve a codificar utilizando el mismo códec de audio<br>
+        Para videos sin sonido, puede reemplazar <code>-c:a copy</code> con <code>-an</code>.</dd>
         <dt><em>documento_salida</em></dt><dd>ruta y nombre del documento de salida</dd>
       </dl>
       <p class="link"></p>
     </div>
-    <!-- ends 16:9 to 4:3 -->
+    <!-- Fin 16:9 to 4:3 -->
 
-    <!-- Flip image -->
+    <!-- Voltear imagen -->
     <label class="recipe" for="flip_image">Flip video image</label>
     <input type="checkbox" id="flip_image">
     <div class="hiding">
