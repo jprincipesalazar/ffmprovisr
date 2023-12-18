@@ -404,7 +404,7 @@
       <p>Variation: Copy PCM audio streams by using Matroska instead of the MP4 container</p>
       <p><code>ffmpeg -i <em>input_video_file</em>.mxf -i <em>input_audio_file</em>.mxf -c:v libx264 -pix_fmt yuv420p -c:a copy <em>documento_salida.mkv</em></code></p>
       <dl>
-        <dt>-c:a copy</dt><dd>re-encodes using the same audio codec</dd>
+        <dt>-c:a copy</dt><dd>vuelve a codificar utilizando el mismo códec de audio</dd>
         <dt><em>documento_salida.mkv</em></dt><dd>path, name and .mkv extension of the output file</dd>
       </dl>
       <p class="link"></p>
@@ -638,7 +638,7 @@
     <!-- Fin 16:9 to 4:3 -->
 
     <!-- Voltear imagen -->
-    <label class="recipe" for="flip_image">Flip video image</label>
+    <label class="recipe" for="flip_image">Voltear imagen de video</label>
     <input type="checkbox" id="flip_image">
     <div class="hiding">
       <h5>Flip the video image horizontally and/or vertically</h5>
@@ -647,13 +647,13 @@
         <dt>ffmpeg</dt><dd>inicia el commando</dd>
         <dt>-i <em>documento_ingreso</em></dt><dd>ruta y nombre del documento de ingreso file</dd>
         <dt>-filter:v "hflip,vflip"</dt><dd>flips the image horizontally and vertically<br>By using only one of the parameters hflip or vflip for filtering the image is flipped on that axis only. The quote marks are not mandatory.</dd>
-        <dt>-c:a copy</dt><dd>re-encodes using the same audio codec<br>
-        For silent videos you can replace <code>-c:a copy</code> by <code>-an</code>.</dd>
+        <dt>-c:a copy</dt><dd>vuelve a codificar utilizando el mismo códec de audio<br>
+         Para videos sin sonido, puede reemplazar <code>-c:a copy</code> con <code>-an</code>.</dd>
         <dt><em>documento_salida</em></dt><dd>ruta y nombre del documento de salida</dd>
       </dl>
       <p class="link"></p>
     </div>
-    <!-- ends Flip image -->
+    <!-- Fin Voltear imagen -->
 
     <!-- SD to HD -->
     <label class="recipe" for="SD_HD_2">Transform SD to HD with pillarbox</label>
@@ -671,8 +671,8 @@
             <li>The scaling filter (<code>scale=1440:1080</code>) works for both upscaling and downscaling. We use the Lanczos scaling algorithm (<code>flags=lanczos</code>), which is slower but gives better results than the default bilinear algorithm.</li>
             <li>The padding filter (<code>pad=1920:1080:240:0</code>) completes the transformation from SD to HD.</li>
           </ol></dd>
-        <dt>-c:a copy</dt><dd>re-encodes using the same audio codec<br>
-        For silent videos you can replace <code>-c:a copy</code> with <code>-an</code>.</dd>
+        <dt>-c:a copy</dt><dd>vuelve a codificar utilizando el mismo códec de audio<br>
+         Para videos sin sonido, puede reemplazar <code>-c:a copy</code> with <code>-an</code>.</dd>
         <dt><em>documento_salida</em></dt><dd>ruta y nombre del documento de salida</dd>
       </dl>
       <p>If your source is interlaced, you will want to deinterlace prior to scaling. In that case, your command would look like this:</p>
@@ -927,7 +927,7 @@
       <dl>
         <dt>ffmpeg</dt><dd>inicia el commando</dd>
         <dt>-i <em>documento_ingreso</em></dt><dd>ruta y nombre del documento de ingreso file</dd>
-        <dt>-c:a copy</dt><dd>re-encodes using the same audio codec</dd>
+        <dt>-c:a copy</dt><dd>vuelve a codificar utilizando el mismo códec de audio</dd>
         <dt>-vn</dt><dd>no video stream</dd>
         <dt><em>documento_salida</em></dt><dd>ruta y nombre del documento de salida</dd>
       </dl>
