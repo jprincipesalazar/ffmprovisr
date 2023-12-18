@@ -22,7 +22,7 @@
     <a href="#concepts"><div class="contents-list">Conceptos avanzados de FFmpeg</div></a>
     <a href="#rewrap"><div class="contents-list">Cambio de contenedor (rewrap)</div></a>
     <a href="#transcode"><div class="contents-list">Cambio de codec (transcode)</div></a>
-    <a href="#video-properties"><div class="contents-list">Cambio de propiedades de video</div></a>
+    <a href="#video-properties"><div class="contents-list">Cambio de propiedades de vídeo</div></a>
     <!-- <a href="#audio-files"><div class="contents-list">Change/view audio properties</div></a> -->
     <a href="#join-trim"><div class="contents-list">Unir/Cortar/Crear un fragmento</div></a>
     <!-- <a href="#interlacing"><div class="contents-list">Work with interlaced video</div></a> -->
@@ -596,14 +596,14 @@
 
     </div>
     <div class="well">
-    <h2 id="video-properties">Cambio de propiedades de video</h2>
+    <h2 id="video-properties">Cambio de propiedades de vídeo</h2>
 
-    <!-- 4:3 to 16:9 -->
-    <label class="recipe" for="SD_HD">Transform 4:3 aspect ratio into 16:9 with pillarbox</label>
+    <!-- 4:3 a 16:9 -->
+    <label class="recipe" for="SD_HD">Transformar relación de aspecto 4:3 a 16:9 con pillarbox</label>
     <input type="checkbox" id="SD_HD">
     <div class="hiding">
-      <h5>Transform 4:3 aspect ratio into 16:9 with pillarbox</h5>
-      <p>Transform a video file with 4:3 aspect ratio into a video file with 16:9 aspect ratio by correct pillarboxing.</p>
+      <h5>Transformar relación de aspecto 4:3 a 16:9 con pillarbox</h5>
+      <p>Transforma un archivo de vídeo con el relación de aspecto 4:3 a un archivo de vídeo con el relación de aspecto 16:9 por medio del correcto formato de pillarboxing.</p>
       <p><code>ffmpeg -i <em>input_file</em> -filter:v "pad=ih*16/9:ih:(ow-iw)/2:(oh-ih)/2" -c:a copy <em>output_file</em></code></p>
       <dl>
         <dt>ffmpeg</dt><dd>starts the command</dd>
@@ -615,7 +615,7 @@
       </dl>
       <p class="link"></p>
     </div>
-    <!-- ends 4:3 to 16:9 -->
+    <!-- Fin 4:3 to 16:9 -->
 
     <!-- 16:9 to 4:3 -->
     <label class="recipe" for="HD_SD">Transform 16:9 aspect ratio video into 4:3 with letterbox</label>
