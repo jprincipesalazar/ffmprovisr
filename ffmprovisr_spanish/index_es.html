@@ -643,7 +643,7 @@
     <label class="recipe" for="flip_image">Voltear imagen de video</label>
     <input type="checkbox" id="flip_image">
     <div class="hiding">
-      <h5>Flip the video image horizontally and/or vertically</h5>
+      <h5>Voltea la imagen del video horizontal y/o verticalmente</h5>
       <p><code>ffmpeg -i <em>documento_ingreso</em> -filter:v "hflip,vflip" -c:a copy <em>documento_salida</em></code></p>
       <dl>
         <dt>ffmpeg</dt><dd>inicia el commando</dd>
@@ -684,22 +684,22 @@
     </div>
     <!-- fin SD a HD -->
 
-    <!-- Change display aspect ratio without re-encoding video-->
-    <label class="recipe" for="change_DAR">Change display aspect ratio without re-encoding</label>
+    <!-- Cambiar la relación de aspecto para visionado sin volver a codificar el video-->
+    <label class="recipe" for="change_DAR">Cambiar la relación de aspecto para visionado sin volver a codificar el videog</label>
     <input type="checkbox" id="change_DAR">
     <div class="hiding">
-      <h5>Change Display Aspect Ratio without re-encoding video</h5>
+      <h5>Cambiar la relación de aspecto para visionado sin volver a codificar el video</h5>
       <p><code>ffmpeg -i <em>documento_ingreso</em> -c:v copy -aspect 4:3 <em>documento_salida</em></code></p>
       <dl>
         <dt>ffmpeg</dt><dd>inicia el commando</dd>
         <dt>-i <em>documento_ingreso</em></dt><dd>ruta y nombre del documento de ingreso file</dd>
-        <dt>-c:v copy</dt><dd>Copy all mapped video streams.</dd>
-        <dt>-aspect 4:3</dt><dd>Change Display Aspect Ratio to <code>4:3</code>. Experiment with other aspect ratios such as <code>16:9</code>. If used together with <code>-c:v copy</code>, it will affect the aspect ratio stored at container level, but not the aspect ratio stored in encoded frames, if it exists.</dd>
+        <dt>-c:v copy</dt><dd>Copie todas las transmisiones de video asignadas.</dd>
+        <dt>-aspect 4:3</dt><dd>Cambia la relación de aspecto para visionado a <code>4:3</code>. Experimente con otras relaciones de aspecto como <code>16:9</code>. Usado junto a <code>-c:v copy</code>, afectará la relación de aspecto guardada a nivel de contenedor, pero no la relación de aspecto guardada en cuadros codificados, si existen.</dd>
         <dt><em>documento_salida</em></dt><dd>ruta y nombre del documento de salida</dd>
       </dl>
       <p class="link"></p>
     </div>
-    <!-- ends Change display aspect ratio without re-encoding video -->
+    <!-- Fin Cambiar la relación de aspecto para visionado sin volver a codificar el video -->
 
     <!-- Convert colorspace -->
     <label class="recipe" for="convert-colorspace">Convert colorspace of video</label>
