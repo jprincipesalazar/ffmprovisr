@@ -26,7 +26,8 @@ Por eso, el propósito de este glosario es listar terminología básica y repeti
 * [stream](#stream)
 * [map](#map)
 * [rewrap](#rewrap)
-  
+* [remuxing](#remuxing)
+* [GPU](#GPU)   
 
 ## Script
 ## Command
