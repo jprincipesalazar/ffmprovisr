@@ -82,7 +82,7 @@
         <p>De manera similar, en la instrucción <code>-c:v prores</code>, el indicador <code>-c:v</code> le dice a FFmpeg que quieres codificar el contenido de video y <code>prores</code> especifíca el codec que quieres que se use en el proceso (<code>-c:v</code> es el abreviado de <code>-codec:v</code>/<code>-codec:video</code>).</p>
         <p>Una línea de comando básico de FFmpeg luce así:</p>
         <dl>
-          <dt>ffmpeg</dt><dd>inicia el comando</dd>
+          <dt>ffmpeg</dt><dd>comando de inicio</dd>
           <dt>-i <em>input_file.ext</em></dt><dd>ruta y nombre del documento de ingreso</dd>
           <dt><em>-indicador acción</em></dt><dd>le dice a FFmpeg que haga algo a través de un indicador y acción válida.</dd>
           <dt><em>output_file.ext</em></dt><dd>ruta y nombre del documento de salida.<br>
@@ -211,32 +211,32 @@
     <div class="well">
     <h2 id="rewrap">Cambio de contenedor (rewrap)</h2>
 
-    <!-- Basic rewrap command -->
-    <label class="recipe" for="basic-rewrap">Basic rewrap command</label>
+    <!-- Comandos básicos de rewraprewrap -->
+    <label class="recipe" for="basic-rewrap">Comandos básicos de rewrap</label>
     <input type="checkbox" id="basic-rewrap">
     <div class="hiding">
-      <h5>Rewrap a file</h5>
+      <h5>Rewrap de un archivo</h5>
       <p><code>ffmpeg -i <em>input_file.ext</em> -c copy -map 0 <em>output_file.ext</em></code></p>
-      <p>This script will rewrap a video file. It will create a new video video file where the inner content (the video, audio, and subtitle data) of the original file is unchanged, but these streams are rehoused within a different container format.</p>
-      <p><strong>Note:</strong> rewrapping is also known as remuxing, short for re-multiplexing.</p>
+      <p>Este combiará de contenedor del archivo ingresado. Creará un nuevo archivo en el que el contenido original interno del archivo de video (pistas de video, audio o subtítulos) no cambiará, pero sí tendrán un formato nuevo de contenedor.</p>
+      <p><strong>Nota:</strong> rewrapping (cambio de contenedor) también es conocido como remuxing (abreviado de remultiplexado).</p>
       <dl>
-        <dt>ffmpeg</dt><dd>starts the command</dd>
-        <dt>-i <em>input_file.ext</em></dt><dd>path and name of the input file</dd>
-        <dt>-c copy</dt><dd>copy the streams directly, without re-encoding.</dd>
-        <dt>-map 0</dt><dd>map all streams of the input to the output.<br>
-        By default, FFmpeg will only map one stream of each type (video, audio, subtitles) to the output file. However, files may have multiple streams of a given type - for example, a video may have several audio tracks for different languages. Therefore, if you want to preserve all the streams in the original, it's necessary to use this option.</dd>
-        <dt><em>output_file.ext</em></dt><dd>path and name of the output file.<br>
-        The new container you are rewrapping to is defined by the filename extension used here, e.g. .mkv, .mp4, .mov.</dd>
+        <dt>ffmpeg</dt><dd>comando de inicio</dd>
+        <dt>-i <em>input_file.ext</em></dt><dd>ruta y nombre del input file</dd>
+        <dt>-c copy</dt><dd>copiar los flujos de información de manera directa sin volver a codificarlos.</dd>
+        <dt>-map 0</dt><dd>Asignar todos los flujos de información del input file al output file.<br>
+        Si no usas esta indicación, FFmpeg, por defecto, solo asignará una pista por cada tipo de flujo (video, audio, subtítulos) al output file. No obstante, los archivos pueden tener múltiples pistas de un tipo de flujo. Por ejemplo, un video puede tener varias pistas de audio para diferentes idiomas. Entonces, si lo que deseas es conservar todas las pistas, es necesario que uses esta indicación.</dd>
+        <dt><em>output_file.ext</em></dt><dd>ruta y nombre del output file.<br>
+        El nuevo contenedor al que se mudará el contenido podrá usar las siguientes extensiones de archivo, .mkv, .mp4, .mov.</dd>
       </dl>
-      <h4>Important caveat</h4>
-      <p>It may not be possible to rewrap a file's contents to a new container without re-encoding one or more of the streams within (that is, the video, audio, and subtitle tracks). Some containers can only contain streams of a certain encoding type: for example, the .mp4 container does not support uncompressed audio tracks. (In practice .mp4 goes hand-in-hand with a H.264-encoded video stream and an AAC-encoded video stream, although other types of video and audio streams are possible). Another example is that the Matroska container does not allow data tracks.</p>
-      <p>In such cases, FFmpeg will throw an error. If you encounter errors of this kind, you may wish to consult the <a href="#transcode">list of transcoding recipes</a>.</p>
+      <h4>Aviso importante</h4>
+      <p>Puede suceder que no se pueda hacer el rewrap del contenido de un archivo a un nuevo contenedor sin antes re codificar uno o más de los flujos de información: pistas de video, audio y subtítulos). Algunos contenedores solo pueden albergar ciertos tipos de codificación. Por ejemplo, el contenedor .mp4 va de la mano con pistas de video codificadas en H.264 y pistas de audio codificadas en AAC, aunque otros tipos de pistas de audio y video son posibles. Otro ejemplo, el contenedor Matroska no permite albergar pistas de datos.</p>
+      <p>En estos casos, FFmpeg emitirá un mensaje de error. Si te suceden estos tipos de errores, te invitamos a consultar la <a href="#transcode">lista de recetas de transcodificación</a>.</p>
       <p class="link"></p>
     </div>
-    <!-- End Basic rewrap command -->
+    <!-- Fin comando básico de rewrap -->
 
     <!-- BWF -->
-    <label class="recipe" for="bwf">Convert to (or create) Broadcast WAV</label>
+    <!-- <label class="recipe" for="bwf">Convert to (or create) Broadcast WAV</label>
     <input type="checkbox" id="bwf">
     <div class="hiding">
       <h5>Generate Broadcast WAV</h5>
@@ -262,22 +262,22 @@
       <p>Example: <code>-metadata originator='US, UW Libraries'</code></p>
       <p>Additionally, users should be aware that BWF metadata fields are limited by characters, with some such as OriginatorReference maxing out at 32. Specific information can be found in the <a href="https://tech.ebu.ch/docs/tech/tech3285.pdf">Broadcast Wave Format specification</a>. Additional examples of BWF metadata usage can be found in the <a href="http://www.dlib.indiana.edu/projects/sounddirections/papersPresent/sd_bp_07.pdf">Sound Directions report</a> by Indiana University and Harvard.</p>
       <p class="link"></p>
-    </div>
+    </div> -->
     <!-- ends BWF -->
 
     <!-- Rewrap DV -->
-    <label class="recipe" for="rewrap-dv">Rewrap DV video to .dv file</label>
+    <label class="recipe" for="rewrap-dv">Rewrap de DV video a .dv file</label>
     <input type="checkbox" id="rewrap-dv">
     <div class="hiding">
-      <h5>Rewrap DV video to .dv file</h5>
+      <h5>Rewrap de DV video a .dv file</h5>
       <p><code>ffmpeg -i <em>input_file</em> -f rawvideo -c:v copy <em>output_file.dv</em></code></p>
-      <p>This script will take a video that is encoded in the <a href="https://en.wikipedia.org/wiki/DV" target="_blank">DV Codec</a> but wrapped in a different container (such as MOV) and rewrap it into a raw DV file (with the .dv extension). Since DV files potentially contain a great deal of provenance metadata within the DV stream, it is necessary to rewrap files in this method to avoid unintentional stripping of this metadata.</p>
+      <p>Este comando va a transferir la información de un video codificado en <a href="https://en.wikipedia.org/wiki/DV" target="_blank">DV Codec</a> pero albergado en un contenedor diferente, como .mov por ejemplo, y luego lo cambiará a contenedor DV file con extensión .dv. Dado que los archivos DV pueden contener una gran cantidad de metadatos procedentes del flujo DV, es necesario cambiar los archivos de contenedor a través de este método para evitar la eliminación involuntaria de dichos metadatos.</p>
       <dl>
-        <dt>ffmpeg</dt><dd>starts the command</dd>
-        <dt>-i <em>input_file</em></dt><dd>path and name of the input file</dd>
-        <dt>-f rawvideo</dt><dd>this tells FFmpeg to pass the video stream as raw video data without remuxing. This step is what ensures the survival of embedded metadata versus a standard rewrap.</dd>
-        <dt>-c:v copy</dt><dd>copy the DV stream directly, without re-encoding.</dd>
-        <dt><em>output_file.dv</em></dt><dd>tells FFmpeg to use the DV wrapper for the output.</dd>
+        <dt>ffmpeg</dt><dd>comando de inicio</dd>
+        <dt>-i <em>input_file</em></dt><dd>ruta y nombre del input file</dd>
+        <dt>-f rawvideo</dt><dd>esta indicación le dice a FFmpeg que pase los flujos de video a datos de video en bruto sin remezcla. Este paso garantiza que la metadata incrustada sobreviva en comparación con un proceso de cambio de contenedor estándar.</dd>
+        <dt>-c:v copy</dt><dd>indica copiar la pista de video de DV directamente sin volver a codificar.</dd>
+        <dt><em>output_file.dv</em></dt><dd>le indica a FFmpeg que use el contenedor de DV para el output file.</dd>
       </dl>
       <p class="link"></p>
     </div>
@@ -285,10 +285,10 @@
 
     </div>
     <div class="well">
-    <h2 id="transcode">Change codec (transcode)</h2>
+    <h2 id="transcode">Cambio de codec (transcodificación)</h2>
 
     <!-- Transcode to ProRes -->
-    <label class="recipe" for="to_prores">Transcode to deinterlaced Apple ProRes LT</label>
+    <!-- <label class="recipe" for="to_prores">Transcode to deinterlaced Apple ProRes LT</label>
     <input type="checkbox" id="to_prores">
     <div class="hiding">
       <h5>Transcode into a deinterlaced Apple ProRes LT</h5>
@@ -316,29 +316,29 @@
         <li><code>prores_ks</code> generates a better file, can also be used for interlaced video, allows also encoding of ProRes 4444 (<code>-c:v prores_ks -profile:v 4</code>) and ProRes 4444 XQ (<code>-c:v prores_ks -profile:v 5</code>), and seems to be better for video according to Rec. 709 (Recommendation ITU-R BT.709).</li>
       </ul>
       <p class="link"></p>
-    </div>
+    </div> -->
     <!-- ends Transcode to ProRes -->
 
     <!-- Transcode to H.264 -->
-    <label class="recipe" for="transcode_h264">Transcode to an H.264 access file</label>
+    <label class="recipe" for="transcode_h264">Transcodificación a un archivo de acceso H.264</label>
     <input type="checkbox" id="transcode_h264">
     <div class="hiding">
-      <h5>Transcode to H.264</h5>
+      <h5>Transcodificación a H.264</h5>
       <p><code>ffmpeg -i <em>input_file</em> -c:v libx264 -pix_fmt yuv420p -c:a aac <em>output_file</em></code></p>
-      <p>This command takes an input file and transcodes it to H.264 with an .mp4 wrapper, audio is transcoded to AAC. The libx264 codec defaults to a “medium” preset for compression quality and a CRF of 23. CRF stands for constant rate factor and determines the quality and file size of the resulting H.264 video. A low CRF means high quality and large file size; a high CRF means the opposite.</p>
+      <p>Este comando transcodifica el input file a H.264 en video y a AAC en audio en contenedor .mp4. El codec libx264 tiene una configuración preestablecida de compresión de calidad media y un CRF (factor de velocidad constante por sus siglas en inglés) de 23. El CRF determina la calidad y el tamaño del archivo del video H.264 resultante. Un CRF bajo se traduce en un archivo pesado y de alta calidad. Un CRF alto significa lo contrario.</p>
       <dl>
-        <dt>ffmpeg</dt><dd>starts the command</dd>
-        <dt>-i <em>input_file</em></dt><dd>path, name and extension of the input file</dd>
-        <dt>-c:v libx264</dt><dd>tells FFmpeg to encode the video stream as H.264</dd>
-        <dt>-pix_fmt yuv420p</dt><dd>libx264 will use a chroma subsampling scheme that is the closest match to that of the input. This can result in Y′C<sub>B</sub>C<sub>R</sub> 4:2:0, 4:2:2, or 4:4:4 chroma subsampling. QuickTime and most other non-FFmpeg based players can’t decode H.264 files that are not 4:2:0. In order to allow the video to play in all players, you can specify 4:2:0 chroma subsampling.</dd>
-        <dt>-c:a aac</dt><dd>encode audio as AAC.<br>
-          AAC is the codec most often used for audio streams within an .mp4 container.</dd>
-        <dt><em>output_file</em></dt><dd>path, name and extension of the output file</dd>
+        <dt>ffmpeg</dt><dd>comando de inicio</dd>
+        <dt>-i <em>input_file</em></dt><dd>ruta, nombre y extensión del input file</dd>
+        <dt>-c:v libx264</dt><dd>indica a FFmpeg que codifique la pista de video como H.264</dd>
+        <dt>-pix_fmt yuv420p</dt><dd>indica que libx264 usará un esquema de submuestreo de chroma que es lo más cercano al archivo de origen. Esto puede resultar en el submuestro de chroma de Y′C<sub>B</sub>C<sub>R</sub> 4:2:0, 4:2:2, o 4:4:4. QuickTime y la mayoría de los reproductores que no usan FFmpeg no pueden decodificar (reproducir) archivos en H.264 que no son 4:2:0. Para estar tener seguridad de que el archivo se podrá reproducir en todos los reproductors, debes especificar el submuestreo de chroma en 4:2:0.</dd>
+        <dt>-c:a aac</dt><dd>indica codifica la pista de audio como AAC.<br>
+          AAC es el codec más usado para pistas de audio en contenedores .mp4.</dd>
+        <dt><em>output_file</em></dt><dd>ruta, nombre y extensión del output file</dd>
       </dl>
-      <p>In order to optimize the file for streaming, you can add this preset:</p>
+      <p>Para optimizar el archivo para transmisión, puedes agregar la siguiente preconfiguración.</p>
       <p><code>ffmpeg -i <em>input_file</em> -c:v libx264 -pix_fmt yuv420p -c:a aac -movflags +faststart <em>output_file</em></code></p>
       <dl>
-        <dt>-movflags +faststart</dt><dd>This tells FFmpeg to move some of the essential metadata to the start of the file, which permits starting viewing before the file finishes downloading (an ideal characteristic for streaming).</dd>
+        <dt>-movflags +faststart</dt><dd>esta indicación le pide a FFmpeg que mueva parte de los metadatos esenciales al inicio del archivo, lo cual permite iniciar el visionado antes de que el archive termine de descargar. Esto es una característica ideal para transmisión.</dd>
       </dl>
       <p>In order to use the same basic command to make a higher quality file, you can add some of these presets:</p>
       <p><code>ffmpeg -i <em>input_file</em> -c:v libx264 -pix_fmt yuv420p -preset veryslow -crf 18 -c:a aac <em>output_file</em></code></p>
