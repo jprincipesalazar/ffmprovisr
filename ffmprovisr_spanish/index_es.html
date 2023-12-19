@@ -17,7 +17,8 @@
   <nav class="sidebar well">
     <h2 class="heading">Tabla de contenidos</h2>
     <a href="#about"><div class="contents-list">Acerca de ffmprovisr</div></a>
-    <div id="toggle-expand-collapse-all" class="contents-list">Expandir/cerrar todas las recetas</div>
+    <a href="glossary.md"><div class="contents-list">Glosario de términos</div></a>
+    <a href="../recipes.md"><div id="toggle-expand-collapse-all" class="contents-list">Expandir/cerrar todas las recetas</div></a>
     <a href="#basics"><div class="contents-list">Conceptos básicos de FFmpeg</div></a>
     <a href="#concepts"><div class="contents-list">Conceptos avanzados de FFmpeg</div></a>
     <a href="#rewrap"><div class="contents-list">Cambio de contenedor (rewrap)</div></a>
@@ -47,12 +48,12 @@
       <h2 class="heading" id="about">Acerca de ffmprovisr</h2>
       <h3>FFmpeg en simple</h3>
       <p>FFmpeg es una poderosa herramienta para trabajar con documentos audiovisuales. Desafortunadamente, FFmpeg tiene una gran curva de aprendizaje, especialmente para usuarios que no están tan familiarizados con la interfaz de línea de comandos. Ffmprovisr busca ayudar a los usuarios en el proceso de creación de comandos para que más personas puedan acceder a los beneficios de FFmpeg.</p>
-      <p>Cada sección muestra información importante sobre cómo se pueden realizar una amplia variedad de tareas usando FFmpeg. Para hacer un uso efectivo de este sitio web, haz click en la tarea que quieres realizar. Este te llevará a un comando o a una serie de ellos. Da click en la descripción del comando y se te mostrará un ejemplo del comando, así como una explicación de cómo este comando funciona junto con un desglose de cada una de sus flags (u opciones).</p>
+      <p>Cada sección muestra información importante sobre cómo se pueden realizar una amplia variedad de tareas usando FFmpeg. Para hacer un uso efectivo de este sitio web, haz click en la tarea que quieres realizar. Esta te llevará a un comando o a una serie de ellos. Da click en la descripción del comando y se te mostrará un ejemplo del comando junto con una explicación de cómo este comando funciona. Además, estará el desglose de cada uno de sus indicadores (u opciones).</p>
       <p>Esta página no tiene función de búsqueda, pero se puede acceder a todas las recetas a través de la segunda opción en la barra lateral y usar el buscador de tu navegador (usualmente "ctrl+f" o "cmd+f") para realizar búsquedas por palabras claves en todas las recetas disponibles.</p>
       <h3>Tutoriales</h3>
       <h4>¡Aviso!</h4> <p>La mayoría de las páginas web redireccionadas, están en inglés</p>
       <p>Para los pasos básicos, revisa el programa de la <a href="https://ffmpeg.org/" target="_blank">web oficial</a>.</p>
-      <p>Para instrucciones en cómo instalar FFmpeg en MacOS, Linux, y Windows, dirígete a las   <a href="https://avpres.net/FFmpeg/#ch1" target="_blank">instrucciones de instalación</a> creadas por Reto Kromer.</p>
+      <p>Para instrucciones en cómo instalar FFmpeg en MacOS, Linux, y Windows, dirígete a las <a href="https://avpres.net/FFmpeg/#ch1" target="_blank">instrucciones de instalación</a> creadas por Reto Kromer.</p>
       <p>Para línea de comandos básicos en Bash, prueba el <a href="https://learnpythonthehardway.org/book/appendixa.html" target="_blank">curso exprés de línea de comando</a>. Para más información presentada en el mismo estilo de ffmprovisr, revisa <a href="https://explainshell.com/" target="_blank">explainshell.com</a>!</p>
       <h3>Licencia</h3>
       <p class="license">
@@ -75,17 +76,17 @@
       <input type="checkbox" id="basic-structure">
       <div class="hiding">
         <h5>Estructura básica de una línea de comando en FFmpeg</h5>
-        <p>Sí, puede parecer intimidante, pero en esencia un comando de FFmpeg es relativamente simple. Después de installar FFmpeg (puedes ver las instrucciones en ingles <a href="https://avpres.net/FFmpeg/#ch1" target="_blank">aquí</a>), puedes "llamar" al programa al tipear <code>ffmpeg</code> en tu interfaz de línea de comandos.</p>
-        <p>Cada instrucción que le das a FFmpeg trabaja como una dupla. (1) Una bandera que indica el <em>tipo</em> de acción que quieres realizar; (2) los valores que afectarán a cada bandera. Las banderas siempre están precedidas por un guion.</p>
-        <p>Por ejemplo, en la instrucción <code>-i <em>documento_ingreso.ext</em></code>, la bandera <code>-i</code> le dice a FFmpeg que estás ingresando un documento, e <code>documento_ingreso.ext</code> es el nombre del documento ingresado.</p>
-        <p>De manera similar, en la instrucción <code>-c:v prores</code>, la bandera <code>-c:v</code> le dice a FFmpeg que quieres codificar el contenido de video y <code>prores</code> especifíca el codec que quieres que se use en el proceso (<code>-c:v</code> es el abreviado de <code>-codec:v</code>/<code>-codec:video</code>).</p>
+        <p>Sí, puede parecer intimidante, pero en esencia un comando de FFmpeg es relativamente simple. Después de installar FFmpeg (puedes ver las instrucciones en ingles <a href="https://avpres.net/FFmpeg/#ch1" target="_blank">aquí</a>), puedes "llamar" al programa al tipear <code>ffmpeg</code> en tu terminal.</p>
+        <p>Cada instrucción que le das a FFmpeg trabaja como una dupla. (1) Un indicador que indica el <em>tipo de acción</em> que quieres realizar; (2) los valores que afectarán a cada indicador. Importante: Los indicadores siempre están precedidas por un guion.</p>
+        <p>Por ejemplo, en la instrucción <code>-i <em>input_file.ext</em></code>, el indicador <code>-i</code> le dice a FFmpeg que estás ingresando un documento, e <code>input_file.ext</code> es el nombre del documento ingresado.</p>
+        <p>De manera similar, en la instrucción <code>-c:v prores</code>, el indicador <code>-c:v</code> le dice a FFmpeg que quieres codificar el contenido de video y <code>prores</code> especifíca el codec que quieres que se use en el proceso (<code>-c:v</code> es el abreviado de <code>-codec:v</code>/<code>-codec:video</code>).</p>
         <p>Una línea de comando básico de FFmpeg luce así:</p>
         <dl>
-          <dt>ffmpeg</dt><dd>inicia el comando</dd>
-          <dt>-i <em>documento_ingreso.ext</em></dt><dd>ruta y nombre del documento de ingreso</dd>
-          <dt><em>-bandera una_acción</em></dt><dd>le dice a FFmpeg que haga algo a través de una bandera y acción válida.</dd>
-          <dt><em>documento_salida.ext</em></dt><dd>ruta y nombre del documento de salida.<br>
-            Al ser esta la última parte del comando, el nombre del documento no tiene una bandera que indica que es el documento de salida.</dd>
+          <dt>ffmpeg</dt><dd>comando de inicio</dd>
+          <dt>-i <em>input_file.ext</em></dt><dd>ruta y nombre del documento de ingreso</dd>
+          <dt><em>-indicador acción</em></dt><dd>le dice a FFmpeg que haga algo a través de un indicador y acción válida.</dd>
+          <dt><em>output_file.ext</em></dt><dd>ruta y nombre del documento de salida.<br>
+            Al ser esta la última parte del comando, el nombre del documento no tiene un indicador que indique que es el documento de salida.</dd>
         </dl>
         <p class="link"></p>
       </div>
@@ -98,11 +99,11 @@
         <h5>Reproducir vs. Guardar</h5>
         <p>FFplay te permite reproducir videos ya creados, mientras que FFmpeg te permite guardar el video.</p>
         <p>El siguiente comando crea y guarda un video de 10 segundos de barras SMPTE:</p>
-        <p><code>ffmpeg -f lavfi -i smptebars=size=640x480 -t 10 documento_salida.ext</code></p>
-        <dt>¡No olvides!</dt><dd>Debes cambiar <code>documento_salida.ext</code>por el nombre que quieres que tenga tu documento de salida</dd>
+        <p><code>ffmpeg -f lavfi -i smptebars=size=640x480 -t 10 output_file.ext</code></p>
+        <dt>¡No olvides!</dt><dd>Debes cambiar <code>output_file.ext</code>por el nombre que quieres que tenga tu documento de salida</dd>
         <p>El siguiente comando reproduce y transmite las barras SMPTE, pero no guarda el documento en tu computadora:</p>
         <p><code>ffplay -f lavfi smptebars=size=640x480</code></p>
-        <p>La pequeña pero importante diferencia: la bandera <code>-i</code> es necesaria para FFmpeg, pero no para FFplay. Además, la línea de comando FFmpeg necesita tener <code>-t 10</code> y <code>documento_salida.ext</code> para especificar la duración del video y la ruta donde será guardado.</p>
+        <p>La pequeña pero importante diferencia: el indicador <code>-i</code> es necesario para FFmpeg, pero no para FFplay. Además, el comando de FFmpeg necesita tener <code>-t 10</code> y <code>output_file.ext</code> para especificar la duración del video y la ruta donde será guardado.</p>
         <p class="link"></p>
       </div>
       <!-- Fin Reproducir vs. Guardar -->
@@ -111,130 +112,131 @@
 
     <h2 id="concepts">Aprende conceptos más avanzados de FFmpeg</h2>
     <!-- Loop usage explanation -->
-    <label class="recipe" for="batch-loop">Cómo usar las líneas de comando por grupo y en bucle</label>
+    <label class="recipe" for="batch-loop">Cómo usar las líneas de comando por grupo (o grupos de comandos) y en bucle</label>
     <input type="checkbox" id="batch-loop">
     <div class="hiding">
-      <h5>Batch and Loop script usage</h5>
-      <p><code>ffmpeg -nostdin -i <em>documento_ingreso</em> ...</code></p>
-      <p>One of the frequent uses of FFmpeg is to run batch commands within loops to, for example, generate access files for an entire collection at once.</p>
-      <p>When running an FFmpeg command within a loop it is often necessary to use the <code>-nostdin</code> flag prior to the input in order to ensure successful execution of the commands. This is needed to override FFmpeg's default behavior of enabling interaction on standard input which can result in errors as loop inputs are fed to the ongoing command.</p>
+      <h5>Uso de línea de comando en grupo y en bucle</h5>
+      <p><code>ffmpeg -nostdin -i <em>input_file</em> ...</code></p>
+      <p>Uno de los usos más frecuentes de FFmpeg es ejecutar grupos de comandos en bucle para, por ejemplo, generar, en un solo paso, documentos de acceso para una colección entera.</p>
+      <p>Al ejecutar un comando de FFmpeg en bucle, es necesario usar el indicador <code>-nostdin</code> previo a ingresar la acción para asegurar la ejecución correcta de los comandos. Esto es necesario para obviar el comportamiento normal de FFmpeg de permitir la interacción estándar de las acciones, lo cual puede resultar en errores, ya que las acciones en bucle se alimentan del comando que se está ejecutando.</p>
       <p class="link"></p>
     </div>
-    <!-- End loop usage explanation -->
+    <!-- Fin de la explicación de uso del loop -->
 
-    <!-- Codec Defaults explanation -->
-    <label class="recipe" for="codec-defaults">Codec defaults</label>
+    <!-- Explicación de los Codec por default -->
+    <label class="recipe" for="codec-defaults">Codec por default</label>
     <input type="checkbox" id="codec-defaults">
     <div class="hiding">
-      <h5>Codec Defaults</h5>
-      <p>Unless specified, FFmpeg will automatically set codec choices and codec parameters based off of internal defaults. These defaults are applied based on the file type used in the output (for example <code>.mov</code> or <code>.wav</code>).</p>
-      <p>When creating or transcoding files with FFmpeg, it is important to consider codec settings for both audio and video, as the default options may not be desirable in your particular context. The following is a brief list of codec defaults for some common file types:</p>
+      <h5>Codec por default</h5>
+      <p>A menos que sea especificado, FFmpeg ejecutará un codec y parámetros determinados de manera automática basado en propiedades internas establecidas por default. Estas propiedades son aplicadas en base al tipo de documento escrito en el output file. Por ejemplo, <code>.mov</code> o <code>.wav</code>).</p>
+      <p>Cuando se crean o transcodifican documentos en FFmpeg, es importante considerar la configuración del codec para audio y video, ya que las opciones por default pueden no ser las adecuadas para tu contexto o propósitos específicos. Lo siguiente es una lista de los codec por default para algunos tipos de documentos más comunes.</p>
       <ul>
-        <li><code>.avi</code>: Audio Codec: mp3, Video Codec: mpeg4</li>
-        <li><code>.mkv</code>: Audio Codec: ac3, Video Codec: H.264</li>
-        <li><code>.mov</code>: Audio Codec: AAC, Video Codec: H.264</li>
-        <li><code>.mp4</code>: Audio Codec: AAC, Video Codec: H.264</li>
-        <li><code>.mpg</code>: Audio Codec: mp2, Video Codec: mpeg1video</li>
-        <li><code>.mxf</code>: Audio Codec: pcm_s16le, Video Codec: mpeg2video</li>
-        <li><code>.wav</code>: Audio Codec: pcm_s16le (16 bit PCM)</li>
+        <li><code>.avi</code>: Codec de audio: mp3, Codec de video: mpeg4</li>
+        <li><code>.mkv</code>: Codec de audio: ac3, Codec de video: H.264</li>
+        <li><code>.mov</code>: Codec de audio: AAC, Codec de video: H.264</li>
+        <li><code>.mp4</code>: Codec de audio: AAC, Codec de video: H.264</li>
+        <li><code>.mpg</code>: Codec de audio: mp2, Codec de video: mpeg1video</li>
+        <li><code>.mxf</code>: Codec de audio: pcm_s16le, Codec de video: mpeg2video</li>
+        <li><code>.wav</code>: Codec de audio: pcm_s16le (16 bit PCM)</li>
       </ul>
       <p class="link"></p>
     </div>
-    <!-- End Codec Defaults -->
+    <!-- Fin de codec por default -->
 
-    <!-- Filtergraph explanation -->
+    <!-- Explicación de Filtergraph -->
     <label class="recipe" for="filtergraphs">Filtergraphs</label>
     <input type="checkbox" id="filtergraphs">
     <div class="hiding">
       <h5>Filtergraphs</h5>
-      <p>Many FFmpeg commands use filters that manipulate the video or audio stream in some way: for example, <a href="https://ffmpeg.org/ffmpeg-filters.html#hflip" target="_blank">hflip</a> to horizontally flip a video, or <a href="https://ffmpeg.org/ffmpeg-filters.html#amerge-1" target="_blank">amerge</a> to merge two or more audio tracks into a single stream.</p>
-      <p>The use of a filter is signaled by the flag <code>-vf</code> (video filter) or <code>-af</code> (audio filter), followed by the name and options of the filter itself. For example, take the <a href="#convert-colorspace">convert colorspace</a> command:</p>
-      <p><code>ffmpeg -i <em>documento_ingreso</em> -c:v libx264 -vf colormatrix=<em>src</em>:<em>dst</em> <em>documento_salida</em></code>
-      <p>Here, <a href="https://ffmpeg.org/ffmpeg-filters.html#colormatrix" target="_blank">colormatrix</a> is the filter used, with <em>src</em> and <em>dst</em> representing the source and destination colorspaces. This part following the <code>-vf</code> is a <strong>filtergraph</strong>.</p>
-      <p>It is also possible to apply multiple filters to an input, which are sequenced together in the filtergraph. A chained set of filters is called a filter chain, and a filtergraph may include multiple filter chains. Filters in a filterchain are separated from each other by commas (<code>,</code>), and filterchains are separated from each other by semicolons (<code>;</code>). For example, take the <a href="#inverse-telecine">inverse telecine</a> command:</p>
-      <p><code>ffmpeg -i <em>documento_ingreso</em> -c:v libx264 -vf "fieldmatch,yadif,decimate" <em>documento_salida</em></code></p>
-      <p>Here we have a filtergraph including one filter chain, which is made up of three video filters.</p>
-      <p>It is often prudent to enclose your filtergraph in quotation marks; this means that you can use spaces within the filtergraph. Using the inverse telecine example again, the following filter commands are all valid and equivalent:</p>
+      <p>Muchos comandos de FFmpeg usan filtros que manipulan los canales de audio y video de alguna manera. Por ejemplo, <a href="https://ffmpeg.org/ffmpeg-filters.html#hflip" target="_blank">hflip</a> sirve para girar horizontalmente un video. <a href="https://ffmpeg.org/ffmpeg-filters.html#amerge-1" target="_blank">amerge</a>, combina dos o más canales de audio en un solo stream (this term need further thought!).</p>
+      <p>El uso de un filtro siempre irá señalado por el indicador <code>-vf</code> (filtro de video por sus siglas en inglés), o <code>-af</code> (filtro de audio por sus siglas en inglés), seguido del nombre y la opción del filtro a usarse. Para el ejemplo, usemos el filtro (review if either filtro or command)<a href="#convert-colorspace">convert colorspace</a> y el commando se veria de la siguiente manera.</p>
+      <p><code>ffmpeg -i <em>input_file</em> -c:v libx264 -vf colormatrix=<em>src</em>:<em>dst</em> <em>output_file</em></code>
+      <p>En el comando previo, <a href="https://ffmpeg.org/ffmpeg-filters.html#colormatrix" target="_blank">colormatrix</a> es el filtro usado.<em>src</em> y <em>dst</em> representan la fuente y el destino del espacio de color a aplicarse. Entonces, la parte después de <code>-vf</code> es conocido como un <strong>filtergraph</strong>.</p>
+      <p>Aviso!</p><p><em>src</em> y <em>dst</em> tienen valores específicos que son los que reemplazarán <em>src</em> y <em>dst</em>. 
+      <p>También es posible aplicar múltiples filtros manera secuencial en un filtergraph. A esta secuencia de filtros se le llama cadena de filtros. Asimismo, un filtergraph puede incluir múltiples cadenas de filtros. Los filtros en una cadena de filtros se separan mediante una coma (<code>,</code>) y las cadenas de filtros se separan mediante punto y coma (<code>;</code>). Por ejemplo, analizemos el comando de <a href="#inverse-telecine">inverse telecine</a>.</p>
+      <p><code>ffmpeg -i <em>input_file</em> -c:v libx264 -vf "fieldmatch,yadif,decimate" <em>output_file</em></code></p>
+      <p>Aquí tenemos un filtergraph que incluye una cadena de filtros, la cual está compuesta de tres filtros de video.</p>
+      <p>Siempre es mejor ingresas tu filtergraph entre comillas, porque esto te permitirá usar espacios en tu filtergraph. Entonces, usando de nuevo el mismo ejemplo de inverse telecine, los siguientes comandos de filtros son válidos y equivalentes.</p>
       <ul>
         <li><code>-vf fieldmatch,yadif,decimate</code></li>
         <li><code>-vf "fieldmatch,yadif,decimate"</code></li>
         <li><code>-vf "fieldmatch, yadif, decimate"</code></li>
       </ul>
-      <p>but <code>-vf fieldmatch, yadif, decimate</code> is not valid.</p>
-      <p>The ordering of the filters is significant. Video filters are applied in the order given, with the output of one filter being passed along as the input to the next filter in the chain. In the example above, <code>fieldmatch</code> reconstructs the original frames from the inverse telecined video, <code>yadif</code> deinterlaces (this is a failsafe in case any combed frames remain, for example if the source mixes telecined and real interlaced content), and <code>decimate</code> deletes duplicated frames. Clearly, it is not possible to delete duplicated frames before those frames are reconstructed.</p>
-      <h4>Notes</h4>
+      <p>pero <code>-vf fieldmatch, yadif, decimate</code> no es válido.</p>
+      <p>Ahora, el orden de los filtros sí es importante. Los filtros de video son aplicados al input file en el mismo orden en el que son escritos en el comando. Al input file se le aplica el primer filtro; luego con el resultado de ese filtro, se aplica el segundo de la cadena y así sucesivamente. En el ejemplo de arriba, <code>fieldmatch</code> recontruye los fotogramas originales del telecineado inverso. <code>yadif</code> hace algo llamado deinterlace, que es (this is a failsafe in case any combed frames remain. Por ejemplo, si la fuente mezcla telecineado y contenido interlaceado lineal), y, por último, <code>decimate</code> elimina fotogramas duplicados. Es claro que no es posible eliminar fotogramas duplicados si estos primero no han sido reconstruidos.</p>
+      <h4>Notas</h4>
       <ul>
-        <li><code>-vf</code> is an alias for <code>-filter:v</code></li>
-        <li>If the command involves more than one input or output, you must use the flag <code>-filter_complex</code> instead of <code>-vf</code>.</li>
-        <li>Straight quotation marks ("like this") rather than curved quotation marks (“like this”) should be used.</li>
+        <li><code>-vf</code> es el abreviado de <code>-filter:v</code></li>
+        <li>Si el comando tiene más de un input y output file, entonces debes usar el flag <code>-filter_complex</code> en lugar de <code>-vf</code>.</li>
+        <li>Se debe usar comillas rectas ("como estas"), en vez de las curvas (“estas no”).</li>
       </ul>
-      <p>For more information, check out the FFmpeg wiki <a href="https://trac.ffmpeg.org/wiki/FilteringGuide" target="_blank">Filtering Guide</a>.</p>
+      <p>Para más información, visita la página FFmpeg wiki <a href="https://trac.ffmpeg.org/wiki/FilteringGuide" target="_blank">Guia de filtros</a>.</p>
       <p class="link"></p>
     </div>
-    <!-- End Filtergraph explanation -->
+    <!-- Fin explicación de Filtergraph -->
 
-    <!-- Stream mapping explanation -->
-    <label class="recipe" for="stream-mapping">Stream mapping</label>
+    <!-- Explicación de asignación de flujo -->
+    <label class="recipe" for="stream-mapping">Asignación de flujos</label>
     <input type="checkbox" id="stream-mapping">
     <div class="hiding">
-      <h5>Stream mapping</h5>
-      <p>Stream mapping is the practice of defining which of the streams (e.g., video or audio tracks) present in an input file will be present in the output file. FFmpeg recognizes five stream types:</p>
+      <h5>Asignación de flujos</h5>
+      <p>La asignación de flujos consiste en definir cuál de aquellos (ej., pistas de video o audio) que están presentes en el input file también estarán presentes en el output file. FFmpeg reconoce cinco tipos de flujos.</p>
       <ul>
         <li><code>a</code> - audio</li>
         <li><code>v</code> - video</li>
-        <li><code>s</code> - subtitle</li>
-        <li><code>d</code> - data (including timecode tracks)</li>
-        <li><code>t</code> - attachment</li>
+        <li><code>s</code> - subtítulo</li>
+        <li><code>d</code> - data (inluye pistas de código de tiempo)</li>
+        <li><code>t</code> - documento adjunto</li>
       </ul>
-      <p>Mapping is achieved by use of the <code>-map</code> flag, followed by an action of the type <code>file_number:stream_type[:stream_number]</code>. Numbering is zero-indexed, and it's possible to map by stream type and/or overall stream order within the input file. For example:</p>
+      <p>La asignación se ejecuta usando el indicador <code>-map</code> seguido de una acción del tipo, <code>número_archivo:tipo_de_flujo[:número_de_flujo]</code>. La numeración está indexada al cero y es posible asignar por tipos de flujos o por todo el flujo de datos que aparece en el input file. Se propone un ejemplo de esto debajo.</p>
       <ul>
-        <li><code>-map 0:v</code> means ‘take all video streams from the first input file’.</li>
-        <li><code>-map 0:3</code> means ‘take the fourth stream from the first input file’.</li>
-        <li><code>-map 0:a:2</code> means ‘take the third audio stream from the first input file’.</li>
-        <li><code>-map 0:0 -map 0:2</code> means ‘take the first and third streams from the first input file’.</li>
-        <li><code>-map 0:1 -map 1:0</code> means ‘take the second stream from the first input file and the first stream from the second input file’.</li>
+        <li><code>-map 0:v</code> significa 'toma todas los flujos de video del primer input file’.</li>
+        <li><code>-map 0:3</code> significa 'toma el cuarto flujo de datos del primer input file’.</li>
+        <li><code>-map 0:a:2</code> significa 'toma el tercer flujo de audio del primer input file’.</li>
+        <li><code>-map 0:0 -map 0:2</code> significa 'toma el primer y el tercer flujo de datos del primer input file’.</li>
+        <li><code>-map 0:1 -map 1:0</code> significa 'toma el segundo flujo del primer del primer input file y el primer flujo del segundo input file’.</li>
       </ul>
-      <p>When no mapping is specified in an ffmpeg command, the default for video files is to take just one video and one audio stream for the output: other stream types, such as timecode or subtitles, will not be copied to the output file by default. If multiple video or audio streams are present, the best quality one is automatically selected by FFmpeg.</p>
-      <p>To map <em>all</em> streams in the input file to the output file, use <code>-map 0</code>. However, note that not all container formats can include all stream types: for example, .mp4 cannot contain timecode.</p>
-      <h4>Mapping with a failsafe</h4>
-      <p>To safely process files that may or may not contain given a type of stream, you can add a trailing <code>?</code> to your map commands: for example, <code>-map 0:a?</code> instead of <code>-map 0:a</code>.</p>
-      <p>This makes the map optional: audio streams will be mapped over if they are present in the file—but if the file contains no audio streams, the transcode will proceed as usual, minus the audio stream mapping. Without adding the trailing <code>?</code>, FFmpeg will exit with an error on that file.</p>
-      <p>This is especially recommended when batch processing video files: it ensures that all files in your batch will be transcoded, whether or not they contain audio streams.</p>
-      <p>For more information, check out the FFmpeg wiki <a href="https://trac.ffmpeg.org/wiki/Map" target="_blank">Map</a> page, and the official FFmpeg <a href="https://ffmpeg.org/ffmpeg.html#Advanced-options" target="_blank">documentation on <code>-map</code></a>.</p>
+      <p>Cuando no se especifica la asignación en el comando de FFmpeg, la acción predeterminada para archivos de video es tomar solo una pista de audio y video cada uno para el ouput file. Otro tipos de pistas como códigos de tiempo o subtítulos, no se copiarán en el output file por defecto. Si en el input file hay múltiples pistas de video o audio, FFmpeg seleccionará aquellos de mejor calidad de manera automática.</p>
+      <p>Para la asignación de <em>todos</em> los flujos de información del input file al output file, puedes usar <code>-map 0</code>. ¡Importante! Recuerda que no todos los contenedores pueden incluir todos los tipos de flujo de información. Por ejemplo, un archivo .mp4 no pueden contener códigos de tiempo.</p>
+      <h4>Asignación de manera segura</h4>
+      <p>Para procesar de manera segura archivos que puedan o no contener un determinado tipo de flujo de información, puedes añadir un <code>?</code> seguido de tu comando de asignación. Por ejemplo, <code>-map 0:a?</code> en lugar de <code>-map 0:a</code>.</p>
+      <p>Esto convierte el proceso de asignación a opcional. Es decir, las pistas de audio se asignarán de estar presentes en el archivo, pero si el archivo no los contiene, la transcodificación procederá como de costumbre, excepto por la asignación de flujos de audio en el output file. Si no se le añade <code>?</code>, FFmpeg emitirá un mensaje de error sobre ese archivo.</p>
+      <p>Esto es especialmente recomendado cuando se procesa archivos de video en grupo, porque te aseguras que todos los archivos en tu grupo serán transcodificados ya sea si tienen o no pistas de audio.</p>
+      <p>Para mayor información, puedes revisar la página de FFmpeg wiki <a href="https://trac.ffmpeg.org/wiki/Map" target="_blank">Map</a> y la <a href="https://ffmpeg.org/ffmpeg.html#Advanced-options" target="_blank">documentación sobre <code>-map</code></a> en la página oficial de FFmpeg.</p>
       <p class="link"></p>
     </div>
-    <!-- End Stream Mapping explanation -->
+    <!-- Fin de explicación de Asignación de flujos -->
 
     </div>
     <div class="well">
-    <h2 id="rewrap">Change container (rewrap)</h2>
+    <h2 id="rewrap">Cambio de contenedor (rewrap)</h2>
 
-    <!-- Basic rewrap command -->
-    <label class="recipe" for="basic-rewrap">Basic rewrap command</label>
+    <!-- Comandos básicos de rewraprewrap -->
+    <label class="recipe" for="basic-rewrap">Comandos básicos de rewrap</label>
     <input type="checkbox" id="basic-rewrap">
     <div class="hiding">
-      <h5>Rewrap a file</h5>
-      <p><code>ffmpeg -i <em>documento_ingreso.ext</em> -c copy -map 0 <em>documento_salida.ext</em></code></p>
-      <p>This script will rewrap a video file. It will create a new video video file where the inner content (the video, audio, and subtitle data) of the original file is unchanged, but these streams are rehoused within a different container format.</p>
-      <p><strong>Note:</strong> rewrapping is also known as remuxing, short for re-multiplexing.</p>
+      <h5>Rewrap de un archivo</h5>
+      <p><code>ffmpeg -i <em>input_file.ext</em> -c copy -map 0 <em>output_file.ext</em></code></p>
+      <p>Este combiará de contenedor del archivo ingresado. Creará un nuevo archivo en el que el contenido original interno del archivo de video (pistas de video, audio o subtítulos) no cambiará, pero sí tendrán un formato nuevo de contenedor.</p>
+      <p><strong>Nota:</strong> rewrapping (cambio de contenedor) también es conocido como remuxing (abreviado de remultiplexado).</p>
       <dl>
-        <dt>ffmpeg</dt><dd>inicia el commando</dd>
-        <dt>-i <em>documento_ingreso.ext</em></dt><dd>path and name of the input file</dd>
-        <dt>-c copy</dt><dd>copy the streams directly, without re-encoding.</dd>
-        <dt>-map 0</dt><dd>map all streams of the input to the output.<br>
-        By default, FFmpeg will only map one stream of each type (video, audio, subtitles) to the output file. However, files may have multiple streams of a given type - for example, a video may have several audio tracks for different languages. Therefore, if you want to preserve all the streams in the original, it's necessary to use this option.</dd>
-        <dt><em>documento_salida.ext</em></dt><dd>path and name of the output file.<br>
-        The new container you are rewrapping to is defined by the filename extension used here, e.g. .mkv, .mp4, .mov.</dd>
+        <dt>ffmpeg</dt><dd>comando de inicio</dd>
+        <dt>-i <em>input_file.ext</em></dt><dd>ruta y nombre del input file</dd>
+        <dt>-c copy</dt><dd>copiar los flujos de información de manera directa sin volver a codificarlos.</dd>
+        <dt>-map 0</dt><dd>Asignar todos los flujos de información del input file al output file.<br>
+        Si no usas esta indicación, FFmpeg, por defecto, solo asignará una pista por cada tipo de flujo (video, audio, subtítulos) al output file. No obstante, los archivos pueden tener múltiples pistas de un tipo de flujo. Por ejemplo, un video puede tener varias pistas de audio para diferentes idiomas. Entonces, si lo que deseas es conservar todas las pistas, es necesario que uses esta indicación.</dd>
+        <dt><em>output_file.ext</em></dt><dd>ruta y nombre del output file.<br>
+        El nuevo contenedor al que se mudará el contenido podrá usar las siguientes extensiones de archivo, .mkv, .mp4, .mov.</dd>
       </dl>
-      <h4>Important caveat</h4>
-      <p>It may not be possible to rewrap a file's contents to a new container without re-encoding one or more of the streams within (that is, the video, audio, and subtitle tracks). Some containers can only contain streams of a certain encoding type: for example, the .mp4 container does not support uncompressed audio tracks. (In practice .mp4 goes hand-in-hand with a H.264-encoded video stream and an AAC-encoded video stream, although other types of video and audio streams are possible). Another example is that the Matroska container does not allow data tracks.</p>
-      <p>In such cases, FFmpeg will throw an error. If you encounter errors of this kind, you may wish to consult the <a href="#transcode">list of transcoding recipes</a>.</p>
+      <h4>Aviso importante</h4>
+      <p>Puede suceder que no se pueda hacer el rewrap del contenido de un archivo a un nuevo contenedor sin antes re codificar uno o más de los flujos de información: pistas de video, audio y subtítulos). Algunos contenedores solo pueden albergar ciertos tipos de codificación. Por ejemplo, el contenedor .mp4 va de la mano con pistas de video codificadas en H.264 y pistas de audio codificadas en AAC, aunque otros tipos de pistas de audio y video son posibles. Otro ejemplo, el contenedor Matroska no permite albergar pistas de datos.</p>
+      <p>En estos casos, FFmpeg emitirá un mensaje de error. Si te suceden estos tipos de errores, te invitamos a consultar la <a href="#transcode">lista de recetas de transcodificación</a>.</p>
       <p class="link"></p>
     </div>
-    <!-- End Basic rewrap command -->
+    <!-- Fin comando básico de rewrap -->
 
     <!-- BWF -->
-    <label class="recipe" for="bwf">Convert to (or create) Broadcast WAV</label>
+    <!-- <label class="recipe" for="bwf">Convert to (or create) Broadcast WAV</label>
     <input type="checkbox" id="bwf">
     <div class="hiding">
       <h5>Generate Broadcast WAV</h5>
@@ -260,22 +262,22 @@
       <p>Example: <code>-metadata originator='US, UW Libraries'</code></p>
       <p>Additionally, users should be aware that BWF metadata fields are limited by characters, with some such as OriginatorReference maxing out at 32. Specific information can be found in the <a href="https://tech.ebu.ch/docs/tech/tech3285.pdf">Broadcast Wave Format specification</a>. Additional examples of BWF metadata usage can be found in the <a href="http://www.dlib.indiana.edu/projects/sounddirections/papersPresent/sd_bp_07.pdf">Sound Directions report</a> by Indiana University and Harvard.</p>
       <p class="link"></p>
-    </div>
+    </div> -->
     <!-- ends BWF -->
 
     <!-- Rewrap DV -->
-    <label class="recipe" for="rewrap-dv">Rewrap DV video to .dv file</label>
+    <label class="recipe" for="rewrap-dv">Rewrap de DV video a .dv file</label>
     <input type="checkbox" id="rewrap-dv">
     <div class="hiding">
-      <h5>Rewrap DV video to .dv file</h5>
-      <p><code>ffmpeg -i <em>documento_ingreso</em> -f rawvideo -c:v copy <em>documento_salida.dv</em></code></p>
-      <p>This script will take a video that is encoded in the <a href="https://en.wikipedia.org/wiki/DV" target="_blank">DV Codec</a> but wrapped in a different container (such as MOV) and rewrap it into a raw DV file (with the .dv extension). Since DV files potentially contain a great deal of provenance metadata within the DV stream, it is necessary to rewrap files in this method to avoid unintentional stripping of this metadata.</p>
+      <h5>Rewrap de DV video a .dv file</h5>
+      <p><code>ffmpeg -i <em>input_file</em> -f rawvideo -c:v copy <em>output_file.dv</em></code></p>
+      <p>Este comando va a transferir la información de un video codificado en <a href="https://en.wikipedia.org/wiki/DV" target="_blank">DV Codec</a> pero albergado en un contenedor diferente, como .mov por ejemplo, y luego lo cambiará a contenedor DV file con extensión .dv. Dado que los archivos DV pueden contener una gran cantidad de metadatos procedentes del flujo DV, es necesario cambiar los archivos de contenedor a través de este método para evitar la eliminación involuntaria de dichos metadatos.</p>
       <dl>
-        <dt>ffmpeg</dt><dd>inicia el commando</dd>
-        <dt>-i <em>documento_ingreso</em></dt><dd>path and name of the input file</dd>
-        <dt>-f rawvideo</dt><dd>this tells FFmpeg to pass the video stream as raw video data without remuxing. This step is what ensures the survival of embedded metadata versus a standard rewrap.</dd>
-        <dt>-c:v copy</dt><dd>copy the DV stream directly, without re-encoding.</dd>
-        <dt><em>documento_salida.dv</em></dt><dd>tells FFmpeg to use the DV wrapper for the output.</dd>
+        <dt>ffmpeg</dt><dd>comando de inicio</dd>
+        <dt>-i <em>input_file</em></dt><dd>ruta y nombre del input file</dd>
+        <dt>-f rawvideo</dt><dd>esta indicación le dice a FFmpeg que pase los flujos de video a datos de video en bruto sin remezcla. Este paso garantiza que la metadata incrustada sobreviva en comparación con un proceso de cambio de contenedor estándar.</dd>
+        <dt>-c:v copy</dt><dd>indica copiar la pista de video de DV directamente sin volver a codificar.</dd>
+        <dt><em>output_file.dv</em></dt><dd>le indica a FFmpeg que use el contenedor de DV para el output file.</dd>
       </dl>
       <p class="link"></p>
     </div>
@@ -283,10 +285,10 @@
 
     </div>
     <div class="well">
-    <h2 id="transcode">Change codec (transcode)</h2>
+    <h2 id="transcode">Cambio de codec (transcodificación)</h2>
 
     <!-- Transcode to ProRes -->
-    <label class="recipe" for="to_prores">Transcode to deinterlaced Apple ProRes LT</label>
+    <!-- <label class="recipe" for="to_prores">Transcode to deinterlaced Apple ProRes LT</label>
     <input type="checkbox" id="to_prores">
     <div class="hiding">
       <h5>Transcode into a deinterlaced Apple ProRes LT</h5>
@@ -314,51 +316,51 @@
         <li><code>prores_ks</code> generates a better file, can also be used for interlaced video, allows also encoding of ProRes 4444 (<code>-c:v prores_ks -profile:v 4</code>) and ProRes 4444 XQ (<code>-c:v prores_ks -profile:v 5</code>), and seems to be better for video according to Rec. 709 (Recommendation ITU-R BT.709).</li>
       </ul>
       <p class="link"></p>
-    </div>
+    </div> -->
     <!-- ends Transcode to ProRes -->
 
     <!-- Transcode to H.264 -->
-    <label class="recipe" for="transcode_h264">Transcode to an H.264 access file</label>
+    <label class="recipe" for="transcode_h264">Transcodificación a un archivo de acceso H.264</label>
     <input type="checkbox" id="transcode_h264">
     <div class="hiding">
-      <h5>Transcode to H.264</h5>
-      <p><code>ffmpeg -i <em>documento_ingreso</em> -c:v libx264 -pix_fmt yuv420p -c:a aac <em>documento_salida</em></code></p>
-      <p>This command takes an input file and transcodes it to H.264 with an .mp4 wrapper, audio is transcoded to AAC. The libx264 codec defaults to a “medium” preset for compression quality and a CRF of 23. CRF stands for constant rate factor and determines the quality and file size of the resulting H.264 video. A low CRF means high quality and large file size; a high CRF means the opposite.</p>
+      <h5>Transcodificación a H.264</h5>
+      <p><code>ffmpeg -i <em>input_file</em> -c:v libx264 -pix_fmt yuv420p -c:a aac <em>output_file</em></code></p>
+      <p>Este comando transcodifica el input file a H.264 en video y a AAC en audio en contenedor .mp4. El codec libx264 tiene una configuración preestablecida de compresión de calidad media y un CRF (factor de velocidad constante por sus siglas en inglés) de 23. El CRF determina la calidad y el tamaño del archivo del video H.264 resultante. Un CRF bajo se traduce en un archivo pesado y de alta calidad. Un CRF alto significa lo contrario.</p>
       <dl>
-        <dt>ffmpeg</dt><dd>inicia el commando</dd>
-        <dt>-i <em>documento_ingreso</em></dt><dd>ruta y nombre del documento de ingreso file</dd>
-        <dt>-c:v libx264</dt><dd>tells FFmpeg to encode the video stream as H.264</dd>
-        <dt>-pix_fmt yuv420p</dt><dd>libx264 will use a chroma subsampling scheme that is the closest match to that of the input. This can result in Y′C<sub>B</sub>C<sub>R</sub> 4:2:0, 4:2:2, or 4:4:4 chroma subsampling. QuickTime and most other non-FFmpeg based players can’t decode H.264 files that are not 4:2:0. In order to allow the video to play in all players, you can specify 4:2:0 chroma subsampling.</dd>
-        <dt>-c:a aac</dt><dd>encode audio as AAC.<br>
-          AAC is the codec most often used for audio streams within an .mp4 container.</dd>
-        <dt><em>documento_salida</em></dt><dd>ruta y nombre del documento de salida</dd>
+        <dt>ffmpeg</dt><dd>comando de inicio</dd>
+        <dt>-i <em>input_file</em></dt><dd>ruta, nombre y extensión del input file</dd>
+        <dt>-c:v libx264</dt><dd>indica a FFmpeg que codifique la pista de video como H.264</dd>
+        <dt>-pix_fmt yuv420p</dt><dd>indica que libx264 usará un esquema de submuestreo de chroma que es lo más cercano al archivo de origen. Esto puede resultar en el submuestro de chroma de Y′C<sub>B</sub>C<sub>R</sub> 4:2:0, 4:2:2, o 4:4:4. QuickTime y la mayoría de los reproductores que no usan FFmpeg no pueden decodificar (reproducir) archivos en H.264 que no son 4:2:0. Para estar tener seguridad de que el archivo se podrá reproducir en todos los reproductors, debes especificar el submuestreo de chroma en 4:2:0.</dd>
+        <dt>-c:a aac</dt><dd>indica codifica la pista de audio como AAC.<br>
+          AAC es el codec más usado para pistas de audio en contenedores .mp4.</dd>
+        <dt><em>output_file</em></dt><dd>ruta, nombre y extensión del output file</dd>
       </dl>
-      <p>In order to optimize the file for streaming, you can add this preset:</p>
-      <p><code>ffmpeg -i <em>documento_ingreso</em> -c:v libx264 -pix_fmt yuv420p -c:a aac -movflags +faststart <em>documento_salida</em></code></p>
+      <p>Para optimizar el archivo para transmisión, puedes agregar la siguiente preconfiguración.</p>
+      <p><code>ffmpeg -i <em>input_file</em> -c:v libx264 -pix_fmt yuv420p -c:a aac -movflags +faststart <em>output_file</em></code></p>
       <dl>
-        <dt>-movflags +faststart</dt><dd>This tells FFmpeg to move some of the essential metadata to the start of the file, which permits starting viewing before the file finishes downloading (an ideal characteristic for streaming).</dd>
+        <dt>-movflags +faststart</dt><dd>esta indicación le pide a FFmpeg que mueva parte de los metadatos esenciales al inicio del archivo, lo cual permite iniciar el visionado antes de que el archivo termine de descargar. Esto es una característica ideal para transmisión.</dd>
       </dl>
-      <p>In order to use the same basic command to make a higher quality file, you can add some of these presets:</p>
-      <p><code>ffmpeg -i <em>documento_ingreso</em> -c:v libx264 -pix_fmt yuv420p -preset veryslow -crf 18 -c:a aac <em>documento_salida</em></code></p>
+      <p>Se puede usar el mismo comando básico para generar un archivo de mayor calidad mediante alguna de las preconfiguraciones.</p>
+      <p><code>ffmpeg -i <em>input_file</em> -c:v libx264 -pix_fmt yuv420p -preset veryslow -crf 18 -c:a aac <em>output_file</em></code></p>
       <dl>
-        <dt>-preset <em>veryslow</em></dt><dd>This option tells FFmpeg to use the slowest preset possible for the best compression quality.<br>
-        Available presets, from slowest to fastest, are: <code>veryslow</code>, <code>slower</code>, <code>slow</code>, <code>medium</code>, <code>fast</code>, <code>faster</code>, <code>veryfast</code>, <code>superfast</code>, <code>ultrafast</code>.</dd>
-        <dt>-crf <em>18</em></dt><dd>Specifying a lower CRF will make a larger file with better visual quality. For H.264 files being encoded with a 4:2:0 chroma subsampling scheme (i.e., using <code>-pix_fmt yuv420p</code>), the scale ranges between 0-51 for 8-bit content, with 0 being lossless and 51 the worst possible quality.<br>
-          If no crf is specified, <code>libx264</code> will use a default value of 23. 18 is often considered a “visually lossless” compression.</dd>
+        <dt>-preset <em>veryslow</em></dt><dd>Esta indicación le pide a FFmpeg que use la prconfiguración más lenta posible para lograr una compresión de alta calidad.<br>
+        Las preconfiguraciones disponibles desde la más lento hasta la más rápida son, <code>veryslow</code>, <code>slower</code>, <code>slow</code>, <code>medium</code>, <code>fast</code>, <code>faster</code>, <code>veryfast</code>, <code>superfast</code>, <code>ultrafast</code>.</dd>
+        <dt>-crf <em>18</em></dt><dd>Si especificar un CRF bajo vas a obtener un archivo pesado con una mejor calidad visual. Para archivos H.264 codificados con submuestreo de chroma en 4:2:0 (por ejemplo, usando <code>-pix_fmt yuv420p</code>), la escala se sitúa entre 0-51 para contenido de 8-bit, siendo 0 compresión sin pérdida y 51 la peor calidad posible.<br>
+          Si el CRF no está especificado, <code>libx264</code> usará el valor predeterminado de 23. 18 es considerado como compresión "visualmente sin pérdida".</dd>
       </dl>
-      <p>By default, this recipe will include one track of each type (e.g. audio, video) in the output file. If you wish to include more tracks, consult the <a href="#stream-mapping">entry on stream mapping</a>.</p>
-      <p>For more information, see the <a href="https://trac.ffmpeg.org/wiki/Encode/H.264" target="_blank">FFmpeg and H.264 Encoding Guide</a> on the FFmpeg wiki.</p>
+      <p>Por defecto, esta receta de comando incluirá una sola pista de cada tipo de flujos, por ejemplo, de audio y video, en el output file. Si deseas incluir más pistas, consulta la <a href="#stream-mapping">entrada de Asignación de flujos</a>.</p>
+      <p>Para más información, puedes revisar la <a href="https://trac.ffmpeg.org/wiki/Encode/H.264" target="_blank">guía de codificación de FFmpeg y H.264</a> en FFmpeg wiki.</p>
       <p class="link"></p>
     </div>
-    <!-- ends Transcode to H.264 -->
+    <!-- Fin Transcodificación a H.264 -->
 
-    <!-- Transcode to H.264 or H.265 using the GPU -->
-    <label class="recipe" for="transcode_gpu">Transcode to H.264/H.265 using the GPU</label>
+    <!-- Transcodificación a H.264 o H.265 usando GPU -->
+    <!-- <label class="recipe" for="transcode_gpu">Transcodificación a H.264/H.265 usando GPU</label>
     <input type="checkbox" id="transcode_gpu">
     <div class="hiding">
-      <h5>Transcode to H.264/H.265 using the GPU</h5>
-      <p><code>ffmpeg -i <em>documento_ingreso</em> -c:v h264_nvenc -preset llhq -rc:v vbr_hq -cq:v 19 -b:v 8000k -maxrate:v 12000k -profile:v high -c:a copy <em>documento_salida</em></code></p>
-      <p>This command takes an input file and transcodes it to H.264 using the encoding functionality of an Nvidia GPU (without transcoding the audio). If you're using H.264 with AAC or AC3 audio, you can output to an .mp4 file; if you're using HEVC and/or more exotic audio, you should output to .mkv. While Nvidia's fixed-function hardware can be 10x as performant as encoding on the CPU, it requires a few more parameters in order to optimize quality at lower bitrates.</p>
+      <h5>Transcodificación a H.264/H.265 usando GPU</h5>
+      <p><code>ffmpeg -i <em>input_file</em> -c:v h264_nvenc -preset llhq -rc:v vbr_hq -cq:v 19 -b:v 8000k -maxrate:v 12000k -profile:v high -c:a copy <em>output_file</em></code></p>
+      <p>Este comando transcodifica el documento ingresado a H.264 usando la funcionalidad de codificación de This command takes an input file and transcodes it to H.264 using the encoding functionality of an Nvidia GPU (without transcoding the audio). If you're using H.264 with AAC or AC3 audio, you can output to an .mp4 file; if you're using HEVC and/or more exotic audio, you should output to .mkv. While Nvidia's fixed-function hardware can be 10x as performant as encoding on the CPU, it requires a few more parameters in order to optimize quality at lower bitrates.</p>
       <dl>
         <dt>ffmpeg</dt><dd>inicia el commando</dd>
         <dt>-i <em>documento_ingreso</em></dt><dd>ruta y nombre del documento de ingreso file</dd>
@@ -381,16 +383,16 @@
       </dl>
       <p>Much of the information in this entry was taken from <a href="https://superuser.com/a/1236387" target="_blank">this superuser.com post</a> provided by an Nvidia developer, one of the best sources of information on the ffmpeg Nvidia encoders.</p>
       <p class="link"></p>
-    </div>
+    </div> -->
     <!-- ends Transcode to H.264 or H.265 using the GPU -->
 
     <!-- H.264 from DCP -->
-    <label class="recipe" for="dcp_to_h264">Transcode from DCP to an H.264 access file</label>
+    <label class="recipe" for="dcp_to_h264">Transcodificación de DCP a un archivo de acceso en H.264 </label>
     <input type="checkbox" id="dcp_to_h264">
     <div class="hiding">
-      <h5>H.264 from DCP</h5>
-      <p><code>ffmpeg -i <em>input_video_file</em>.mxf -i <em>input_audio_file</em>.mxf -c:v libx264 -pix_fmt yuv420p -c:a aac <em>documento_salida.mp4</em></code></p>
-      <p>This will transcode MXF wrapped video and audio files to an H.264 encoded MP4 file. Please note this only works for unencrypted, single reel DCPs.</p>
+      <h5>H.264 de DCP</h5>
+      <p><code>ffmpeg -i <em>archivo_ingreso_video</em>.mxf -i <em>archivo_ingreso_audio</em>.mxf -c:v libx264 -pix_fmt yuv420p -c:a aac <em>archivo_salida.mp4</em></code></p>
+      <p>Este comando va a transcodificar los archivos de audio y video albergados en MXF a un archivo codificado en H.264. ¡Aviso importante! Esta receta solo funciona en DCP This will transcode MXF wrapped video and audio files to an H.264 encoded MP4 file. Please note this only works for unencrypted, single reel DCPs.</p>
       <dl>
         <dt>ffmpeg</dt><dd>inicia el commando</dd>
         <dt>-i <em>input_video_file</em></dt><dd>path and name of the video input file. This extension must be <code>.mxf</code></dd>
