@@ -24,6 +24,9 @@ Por eso, el propósito de este glosario es listar terminología básica y repeti
 * [transcode](#transcode)
 * [filtergraphs](#filtergraphs)
 * [stream](#stream)
+* [map](#map)
+* [rewrap](#rewrap)
+  
 
 ## Script
 ## Command

@@ -48,7 +48,7 @@
       <h2 class="heading" id="about">Acerca de ffmprovisr</h2>
       <h3>FFmpeg en simple</h3>
       <p>FFmpeg es una poderosa herramienta para trabajar con documentos audiovisuales. Desafortunadamente, FFmpeg tiene una gran curva de aprendizaje, especialmente para usuarios que no están tan familiarizados con la interfaz de línea de comandos. Ffmprovisr busca ayudar a los usuarios en el proceso de creación de comandos para que más personas puedan acceder a los beneficios de FFmpeg.</p>
-      <p>Cada sección muestra información importante sobre cómo se pueden realizar una amplia variedad de tareas usando FFmpeg. Para hacer un uso efectivo de este sitio web, haz click en la tarea que quieres realizar. Esta te llevará a un comando o a una serie de ellos. Da click en la descripción del comando y se te mostrará un ejemplo del comando junto con una explicación de cómo este comando funciona. Además, estará el desglose de cada una de sus flags (u opciones).</p>
+      <p>Cada sección muestra información importante sobre cómo se pueden realizar una amplia variedad de tareas usando FFmpeg. Para hacer un uso efectivo de este sitio web, haz click en la tarea que quieres realizar. Esta te llevará a un comando o a una serie de ellos. Da click en la descripción del comando y se te mostrará un ejemplo del comando junto con una explicación de cómo este comando funciona. Además, estará el desglose de cada uno de sus indicadores (u opciones).</p>
       <p>Esta página no tiene función de búsqueda, pero se puede acceder a todas las recetas a través de la segunda opción en la barra lateral y usar el buscador de tu navegador (usualmente "ctrl+f" o "cmd+f") para realizar búsquedas por palabras claves en todas las recetas disponibles.</p>
       <h3>Tutoriales</h3>
       <h4>¡Aviso!</h4> <p>La mayoría de las páginas web redireccionadas, están en inglés</p>
@@ -77,16 +77,16 @@
       <div class="hiding">
         <h5>Estructura básica de una línea de comando en FFmpeg</h5>
         <p>Sí, puede parecer intimidante, pero en esencia un comando de FFmpeg es relativamente simple. Después de installar FFmpeg (puedes ver las instrucciones en ingles <a href="https://avpres.net/FFmpeg/#ch1" target="_blank">aquí</a>), puedes "llamar" al programa al tipear <code>ffmpeg</code> en tu terminal.</p>
-        <p>Cada instrucción que le das a FFmpeg trabaja como una dupla. (1) Un flag que indica el <em>tipo de acción</em> que quieres realizar; (2) los valores que afectarán a cada flag. Importante: Los flags siempre están precedidas por un guion.</p>
-        <p>Por ejemplo, en la instrucción <code>-i <em>input_file.ext</em></code>, el flag <code>-i</code> le dice a FFmpeg que estás ingresando un documento, e <code>input_file.ext</code> es el nombre del documento ingresado.</p>
-        <p>De manera similar, en la instrucción <code>-c:v prores</code>, el flag <code>-c:v</code> le dice a FFmpeg que quieres codificar el contenido de video y <code>prores</code> especifíca el codec que quieres que se use en el proceso (<code>-c:v</code> es el abreviado de <code>-codec:v</code>/<code>-codec:video</code>).</p>
+        <p>Cada instrucción que le das a FFmpeg trabaja como una dupla. (1) Un indicador que indica el <em>tipo de acción</em> que quieres realizar; (2) los valores que afectarán a cada indicador. Importante: Los indicadores siempre están precedidas por un guion.</p>
+        <p>Por ejemplo, en la instrucción <code>-i <em>input_file.ext</em></code>, el indicador <code>-i</code> le dice a FFmpeg que estás ingresando un documento, e <code>input_file.ext</code> es el nombre del documento ingresado.</p>
+        <p>De manera similar, en la instrucción <code>-c:v prores</code>, el indicador <code>-c:v</code> le dice a FFmpeg que quieres codificar el contenido de video y <code>prores</code> especifíca el codec que quieres que se use en el proceso (<code>-c:v</code> es el abreviado de <code>-codec:v</code>/<code>-codec:video</code>).</p>
         <p>Una línea de comando básico de FFmpeg luce así:</p>
         <dl>
           <dt>ffmpeg</dt><dd>inicia el comando</dd>
           <dt>-i <em>input_file.ext</em></dt><dd>ruta y nombre del documento de ingreso</dd>
-          <dt><em>-flag acción</em></dt><dd>le dice a FFmpeg que haga algo a través de un flag y acción válida.</dd>
+          <dt><em>-indicador acción</em></dt><dd>le dice a FFmpeg que haga algo a través de un indicador y acción válida.</dd>
           <dt><em>output_file.ext</em></dt><dd>ruta y nombre del documento de salida.<br>
-            Al ser esta la última parte del comando, el nombre del documento no tiene un flag que indique que es el documento de salida.</dd>
+            Al ser esta la última parte del comando, el nombre del documento no tiene un indicador que indique que es el documento de salida.</dd>
         </dl>
         <p class="link"></p>
       </div>
@@ -103,7 +103,7 @@
         <dt>¡No olvides!</dt><dd>Debes cambiar <code>output_file.ext</code>por el nombre que quieres que tenga tu documento de salida</dd>
         <p>El siguiente comando reproduce y transmite las barras SMPTE, pero no guarda el documento en tu computadora:</p>
         <p><code>ffplay -f lavfi smptebars=size=640x480</code></p>
-        <p>La pequeña pero importante diferencia: el flag <code>-i</code> es necesario para FFmpeg, pero no para FFplay. Además, el comando de FFmpeg necesita tener <code>-t 10</code> y <code>output_file.ext</code> para especificar la duración del video y la ruta donde será guardado.</p>
+        <p>La pequeña pero importante diferencia: el indicador <code>-i</code> es necesario para FFmpeg, pero no para FFplay. Además, el comando de FFmpeg necesita tener <code>-t 10</code> y <code>output_file.ext</code> para especificar la duración del video y la ruta donde será guardado.</p>
         <p class="link"></p>
       </div>
       <!-- Fin Reproducir vs. Guardar -->
@@ -118,7 +118,7 @@
       <h5>Uso de línea de comando en grupo y en bucle</h5>
       <p><code>ffmpeg -nostdin -i <em>input_file</em> ...</code></p>
       <p>Uno de los usos más frecuentes de FFmpeg es ejecutar grupos de comandos en bucle para, por ejemplo, generar, en un solo paso, documentos de acceso para una colección entera.</p>
-      <p>Al ejecutar un comando de FFmpeg en bucle, es necesario usar el flag <code>-nostdin</code> previo a ingresar la acción para asegurar la ejecución correcta de los comandos. Esto es necesario para obviar el comportamiento normal de FFmpeg de permitir la interacción estándar de las acciones, lo cual puede resultar en errores, ya que las acciones en bucle se alimentan del comando que se está ejecutando.</p>
+      <p>Al ejecutar un comando de FFmpeg en bucle, es necesario usar el indicador <code>-nostdin</code> previo a ingresar la acción para asegurar la ejecución correcta de los comandos. Esto es necesario para obviar el comportamiento normal de FFmpeg de permitir la interacción estándar de las acciones, lo cual puede resultar en errores, ya que las acciones en bucle se alimentan del comando que se está ejecutando.</p>
       <p class="link"></p>
     </div>
     <!-- Fin de la explicación de uso del loop -->
@@ -149,7 +149,7 @@
     <div class="hiding">
       <h5>Filtergraphs</h5>
       <p>Muchos comandos de FFmpeg usan filtros que manipulan los canales de audio y video de alguna manera. Por ejemplo, <a href="https://ffmpeg.org/ffmpeg-filters.html#hflip" target="_blank">hflip</a> sirve para girar horizontalmente un video. <a href="https://ffmpeg.org/ffmpeg-filters.html#amerge-1" target="_blank">amerge</a>, combina dos o más canales de audio en un solo stream (this term need further thought!).</p>
-      <p>El uso de un filtro siempre irá señalado por el flag <code>-vf</code> (filtro de video por sus siglas en inglés), o <code>-af</code> (filtro de audio por sus siglas en inglés), seguido del nombre y la opción del filtro a usarse. Para el ejemplo, usemos el filtro (review if either filtro or command)<a href="#convert-colorspace">convert colorspace</a> y el commando se veria de la siguiente manera.</p>
+      <p>El uso de un filtro siempre irá señalado por el indicador <code>-vf</code> (filtro de video por sus siglas en inglés), o <code>-af</code> (filtro de audio por sus siglas en inglés), seguido del nombre y la opción del filtro a usarse. Para el ejemplo, usemos el filtro (review if either filtro or command)<a href="#convert-colorspace">convert colorspace</a> y el commando se veria de la siguiente manera.</p>
       <p><code>ffmpeg -i <em>input_file</em> -c:v libx264 -vf colormatrix=<em>src</em>:<em>dst</em> <em>output_file</em></code>
       <p>En el comando previo, <a href="https://ffmpeg.org/ffmpeg-filters.html#colormatrix" target="_blank">colormatrix</a> es el filtro usado.<em>src</em> y <em>dst</em> representan la fuente y el destino del espacio de color a aplicarse. Entonces, la parte después de <code>-vf</code> es conocido como un <strong>filtergraph</strong>.</p>
       <p>Aviso!</p><p><em>src</em> y <em>dst</em> tienen valores específicos que son los que reemplazarán <em>src</em> y <em>dst</em>. 
@@ -175,41 +175,41 @@
     </div>
     <!-- Fin explicación de Filtergraph -->
 
-    <!-- Explicación de mapeo de canal -->
-    <label class="recipe" for="stream-mapping">Mapeo de canal</label>
+    <!-- Explicación de asignación de flujo -->
+    <label class="recipe" for="stream-mapping">Asignación de flujos</label>
     <input type="checkbox" id="stream-mapping">
     <div class="hiding">
-      <h5>Mapeo de canal</h5>
-      <p>El mapeo de canal consiste en definir cuál de los streams (ej., video or audio tracks) presentes en el input file también estarán presentes en el output file. FFmpeg reconoce cinco tipos de streams.</p>
+      <h5>Asignación de flujos</h5>
+      <p>La asignación de flujos consiste en definir cuál de aquellos (ej., pistas de video o audio) que están presentes en el input file también estarán presentes en el output file. FFmpeg reconoce cinco tipos de flujos.</p>
       <ul>
         <li><code>a</code> - audio</li>
         <li><code>v</code> - video</li>
         <li><code>s</code> - subtítulo</li>
-        <li><code>d</code> - data (inluye timecode tracks)</li>
-        <li><code>t</code> - attachment (¿?)</li>
+        <li><code>d</code> - data (inluye pistas de código de tiempo)</li>
+        <li><code>t</code> - documento adjunto</li>
       </ul>
-      <p>El mapeo se ejecuta usando el flag <code>-map</code> seguido de una acción followed by an action of the type <code>file_number:stream_type[:stream_number]</code>. Numbering is zero-indexed, and it's possible to map by stream type and/or overall stream order within the input file. For example:</p>
+      <p>La asignación se ejecuta usando el indicador <code>-map</code> seguido de una acción del tipo, <code>número_archivo:tipo_de_flujo[:número_de_flujo]</code>. La numeración está indexada al cero y es posible asignar por tipos de flujos o por todo el flujo de datos que aparece en el input file. Se propone un ejemplo de esto debajo.</p>
       <ul>
-        <li><code>-map 0:v</code> means ‘take all video streams from the first input file’.</li>
-        <li><code>-map 0:3</code> means ‘take the fourth stream from the first input file’.</li>
-        <li><code>-map 0:a:2</code> means ‘take the third audio stream from the first input file’.</li>
-        <li><code>-map 0:0 -map 0:2</code> means ‘take the first and third streams from the first input file’.</li>
-        <li><code>-map 0:1 -map 1:0</code> means ‘take the second stream from the first input file and the first stream from the second input file’.</li>
+        <li><code>-map 0:v</code> significa 'toma todas los flujos de video del primer input file’.</li>
+        <li><code>-map 0:3</code> significa 'toma el cuarto flujo de datos del primer input file’.</li>
+        <li><code>-map 0:a:2</code> significa 'toma el tercer flujo de audio del primer input file’.</li>
+        <li><code>-map 0:0 -map 0:2</code> significa 'toma el primer y el tercer flujo de datos del primer input file’.</li>
+        <li><code>-map 0:1 -map 1:0</code> significa 'toma el segundo flujo del primer del primer input file y el primer flujo del segundo input file’.</li>
       </ul>
-      <p>When no mapping is specified in an ffmpeg command, the default for video files is to take just one video and one audio stream for the output: other stream types, such as timecode or subtitles, will not be copied to the output file by default. If multiple video or audio streams are present, the best quality one is automatically selected by FFmpeg.</p>
-      <p>To map <em>all</em> streams in the input file to the output file, use <code>-map 0</code>. However, note that not all container formats can include all stream types: for example, .mp4 cannot contain timecode.</p>
-      <h4>Mapping with a failsafe</h4>
-      <p>To safely process files that may or may not contain given a type of stream, you can add a trailing <code>?</code> to your map commands: for example, <code>-map 0:a?</code> instead of <code>-map 0:a</code>.</p>
-      <p>This makes the map optional: audio streams will be mapped over if they are present in the file—but if the file contains no audio streams, the transcode will proceed as usual, minus the audio stream mapping. Without adding the trailing <code>?</code>, FFmpeg will exit with an error on that file.</p>
-      <p>This is especially recommended when batch processing video files: it ensures that all files in your batch will be transcoded, whether or not they contain audio streams.</p>
-      <p>For more information, check out the FFmpeg wiki <a href="https://trac.ffmpeg.org/wiki/Map" target="_blank">Map</a> page, and the official FFmpeg <a href="https://ffmpeg.org/ffmpeg.html#Advanced-options" target="_blank">documentation on <code>-map</code></a>.</p>
+      <p>Cuando no se especifica la asignación en el comando de FFmpeg, la acción predeterminada para archivos de video es tomar solo una pista de audio y video cada uno para el ouput file. Otro tipos de pistas como códigos de tiempo o subtítulos, no se copiarán en el output file por defecto. Si en el input file hay múltiples pistas de video o audio, FFmpeg seleccionará aquellos de mejor calidad de manera automática.</p>
+      <p>Para la asignación de <em>todos</em> los flujos de información del input file al output file, puedes usar <code>-map 0</code>. ¡Importante! Recuerda que no todos los contenedores pueden incluir todos los tipos de flujo de información. Por ejemplo, un archivo .mp4 no pueden contener códigos de tiempo.</p>
+      <h4>Asignación de manera segura</h4>
+      <p>Para procesar de manera segura archivos que puedan o no contener un determinado tipo de flujo de información, puedes añadir un <code>?</code> seguido de tu comando de asignación. Por ejemplo, <code>-map 0:a?</code> en lugar de <code>-map 0:a</code>.</p>
+      <p>Esto convierte el proceso de asignación a opcional. Es decir, las pistas de audio se asignarán de estar presentes en el archivo, pero si el archivo no los contiene, la transcodificación procederá como de costumbre, excepto por la asignación de flujos de audio en el output file. Si no se le añade <code>?</code>, FFmpeg emitirá un mensaje de error sobre ese archivo.</p>
+      <p>Esto es especialmente recomendado cuando se procesa archivos de video en grupo, porque te aseguras que todos los archivos en tu grupo serán transcodificados ya sea si tienen o no pistas de audio.</p>
+      <p>Para mayor información, puedes revisar la página de FFmpeg wiki <a href="https://trac.ffmpeg.org/wiki/Map" target="_blank">Map</a> y la <a href="https://ffmpeg.org/ffmpeg.html#Advanced-options" target="_blank">documentación sobre <code>-map</code></a> en la página oficial de FFmpeg.</p>
       <p class="link"></p>
     </div>
-    <!-- End Stream Mapping explanation -->
+    <!-- Fin de explicación de Asignación de flujos -->
 
     </div>
     <div class="well">
-    <h2 id="rewrap">Change container (rewrap)</h2>
+    <h2 id="rewrap">Cambio de contenedor (rewrap)</h2>
 
     <!-- Basic rewrap command -->
     <label class="recipe" for="basic-rewrap">Basic rewrap command</label>
