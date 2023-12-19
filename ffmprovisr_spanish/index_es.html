@@ -22,7 +22,7 @@
     <a href="#basics"><div class="contents-list">Conceptos básicos de FFmpeg</div></a>
     <a href="#concepts"><div class="contents-list">Conceptos avanzados de FFmpeg</div></a>
     <a href="#rewrap"><div class="contents-list">Cambio de contenedor (rewrap)</div></a>
-    <a href="#transcode"><div class="contents-list">Cambio de codec (transcode)</div></a>
+    <a href="#transcode"><div class="contents-list">Cambio de códec (transcode)</div></a>
     <a href="#video-properties"><div class="contents-list">Cambio de propiedades de vídeo</div></a>
     <!-- <a href="#audio-files"><div class="contents-list">Change/view audio properties</div></a> -->
     <a href="#join-trim"><div class="contents-list">Unir/Cortar/Crear un fragmento</div></a>
@@ -79,7 +79,7 @@
         <p>Sí, puede parecer intimidante, pero en esencia un comando de FFmpeg es relativamente simple. Después de installar FFmpeg (puedes ver las instrucciones en ingles <a href="https://avpres.net/FFmpeg/#ch1" target="_blank">aquí</a>), puedes "llamar" al programa al tipear <code>ffmpeg</code> en tu terminal.</p>
         <p>Cada instrucción que le das a FFmpeg trabaja como una dupla. (1) Un indicador que indica el <em>tipo de acción</em> que quieres realizar; (2) los valores que afectarán a cada indicador. Importante: Los indicadores siempre están precedidas por un guion.</p>
         <p>Por ejemplo, en la instrucción <code>-i <em>input_file.ext</em></code>, el indicador <code>-i</code> le dice a FFmpeg que estás ingresando un documento, e <code>input_file.ext</code> es el nombre del documento ingresado.</p>
-        <p>De manera similar, en la instrucción <code>-c:v prores</code>, el indicador <code>-c:v</code> le dice a FFmpeg que quieres codificar el contenido de video y <code>prores</code> especifíca el codec que quieres que se use en el proceso (<code>-c:v</code> es el abreviado de <code>-codec:v</code>/<code>-codec:video</code>).</p>
+        <p>De manera similar, en la instrucción <code>-c:v prores</code>, el indicador <code>-c:v</code> le dice a FFmpeg que quieres codificar el contenido de video y <code>prores</code> especifíca el códec que quieres que se use en el proceso (<code>-c:v</code> es el abreviado de <code>-codec:v</code>/<code>-codec:video</code>).</p>
         <p>Una línea de comando básico de FFmpeg luce así:</p>
         <dl>
           <dt>ffmpeg</dt><dd>comando de inicio</dd>
@@ -124,20 +124,20 @@
     <!-- Fin de la explicación de uso del loop -->
 
     <!-- Explicación de los Codec por default -->
-    <label class="recipe" for="codec-defaults">Codec por default</label>
+    <label class="recipe" for="codec-defaults">Códec por default</label>
     <input type="checkbox" id="codec-defaults">
     <div class="hiding">
-      <h5>Codec por default</h5>
-      <p>A menos que sea especificado, FFmpeg ejecutará un codec y parámetros determinados de manera automática basado en propiedades internas establecidas por default. Estas propiedades son aplicadas en base al tipo de documento escrito en el output file. Por ejemplo, <code>.mov</code> o <code>.wav</code>).</p>
-      <p>Cuando se crean o transcodifican documentos en FFmpeg, es importante considerar la configuración del codec para audio y video, ya que las opciones por default pueden no ser las adecuadas para tu contexto o propósitos específicos. Lo siguiente es una lista de los codec por default para algunos tipos de documentos más comunes.</p>
+      <h5>Códec por default</h5>
+      <p>A menos que sea especificado, FFmpeg ejecutará un códec y parámetros determinados de manera automática basado en propiedades internas establecidas por default. Estas propiedades son aplicadas en base al tipo de documento escrito en el output file. Por ejemplo, <code>.mov</code> o <code>.wav</code>).</p>
+      <p>Cuando se crean o transcodifican documentos en FFmpeg, es importante considerar la configuración del códec para audio y video, ya que las opciones por default pueden no ser las adecuadas para tu contexto o propósitos específicos. Lo siguiente es una lista de los códec por default para algunos tipos de documentos más comunes.</p>
       <ul>
-        <li><code>.avi</code>: Codec de audio: mp3, Codec de video: mpeg4</li>
-        <li><code>.mkv</code>: Codec de audio: ac3, Codec de video: H.264</li>
-        <li><code>.mov</code>: Codec de audio: AAC, Codec de video: H.264</li>
-        <li><code>.mp4</code>: Codec de audio: AAC, Codec de video: H.264</li>
-        <li><code>.mpg</code>: Codec de audio: mp2, Codec de video: mpeg1video</li>
-        <li><code>.mxf</code>: Codec de audio: pcm_s16le, Codec de video: mpeg2video</li>
-        <li><code>.wav</code>: Codec de audio: pcm_s16le (16 bit PCM)</li>
+        <li><code>.avi</code>: Códec de audio: mp3, Códec de video: mpeg4</li>
+        <li><code>.mkv</code>: Códec de audio: ac3, Códec de video: H.264</li>
+        <li><code>.mov</code>: Códec de audio: AAC, Códec de video: H.264</li>
+        <li><code>.mp4</code>: Códec de audio: AAC, Códec de video: H.264</li>
+        <li><code>.mpg</code>: Códec de audio: mp2, Códec de video: mpeg1video</li>
+        <li><code>.mxf</code>: Códec de audio: pcm_s16le, Códec de video: mpeg2video</li>
+        <li><code>.wav</code>: Códec de audio: pcm_s16le (16 bit PCM)</li>
       </ul>
       <p class="link"></p>
     </div>
@@ -271,7 +271,7 @@
     <div class="hiding">
       <h5>Rewrap de DV video a .dv file</h5>
       <p><code>ffmpeg -i <em>input_file</em> -f rawvideo -c:v copy <em>output_file.dv</em></code></p>
-      <p>Este comando va a transferir la información de un video codificado en <a href="https://en.wikipedia.org/wiki/DV" target="_blank">DV Codec</a> pero albergado en un contenedor diferente, como .mov por ejemplo, y luego lo cambiará a contenedor DV file con extensión .dv. Dado que los archivos DV pueden contener una gran cantidad de metadatos procedentes del flujo DV, es necesario cambiar los archivos de contenedor a través de este método para evitar la eliminación involuntaria de dichos metadatos.</p>
+      <p>Este comando va a transferir la información de un video codificado en <a href="https://en.wikipedia.org/wiki/DV" target="_blank">DV Códec</a> pero albergado en un contenedor diferente, como .mov por ejemplo, y luego lo cambiará a contenedor DV file con extensión .dv. Dado que los archivos DV pueden contener una gran cantidad de metadatos procedentes del flujo DV, es necesario cambiar los archivos de contenedor a través de este método para evitar la eliminación involuntaria de dichos metadatos.</p>
       <dl>
         <dt>ffmpeg</dt><dd>comando de inicio</dd>
         <dt>-i <em>input_file</em></dt><dd>ruta y nombre del input file</dd>
@@ -285,7 +285,7 @@
 
     </div>
     <div class="well">
-    <h2 id="transcode">Cambio de codec (transcodificación)</h2>
+    <h2 id="transcode">Cambio de códec (transcodificación)</h2>
 
     <!-- Transcode to ProRes -->
     <!-- <label class="recipe" for="to_prores">Transcode to deinterlaced Apple ProRes LT</label>
@@ -325,14 +325,14 @@
     <div class="hiding">
       <h5>Transcodificación a H.264</h5>
       <p><code>ffmpeg -i <em>input_file</em> -c:v libx264 -pix_fmt yuv420p -c:a aac <em>output_file</em></code></p>
-      <p>Este comando transcodifica el input file a H.264 en video y a AAC en audio en contenedor .mp4. El codec libx264 tiene una configuración preestablecida de compresión de calidad media y un CRF (factor de velocidad constante por sus siglas en inglés) de 23. El CRF determina la calidad y el tamaño del archivo del video H.264 resultante. Un CRF bajo se traduce en un archivo pesado y de alta calidad. Un CRF alto significa lo contrario.</p>
+      <p>Este comando transcodifica el input file a H.264 en video y a AAC en audio en contenedor .mp4. El códec libx264 tiene una configuración preestablecida de compresión de calidad media y un CRF (factor de velocidad constante por sus siglas en inglés) de 23. El CRF determina la calidad y el tamaño del archivo del video H.264 resultante. Un CRF bajo se traduce en un archivo pesado y de alta calidad. Un CRF alto significa lo contrario.</p>
       <dl>
         <dt>ffmpeg</dt><dd>comando de inicio</dd>
         <dt>-i <em>input_file</em></dt><dd>ruta, nombre y extensión del input file</dd>
         <dt>-c:v libx264</dt><dd>indica a FFmpeg que codifique la pista de video como H.264</dd>
         <dt>-pix_fmt yuv420p</dt><dd>indica que libx264 usará un esquema de submuestreo de chroma que es lo más cercano al archivo de origen. Esto puede resultar en el submuestro de chroma de Y′C<sub>B</sub>C<sub>R</sub> 4:2:0, 4:2:2, o 4:4:4. QuickTime y la mayoría de los reproductores que no usan FFmpeg no pueden decodificar (reproducir) archivos en H.264 que no son 4:2:0. Para estar tener seguridad de que el archivo se podrá reproducir en todos los reproductors, debes especificar el submuestreo de chroma en 4:2:0.</dd>
         <dt>-c:a aac</dt><dd>indica codifica la pista de audio como AAC.<br>
-          AAC es el codec más usado para pistas de audio en contenedores .mp4.</dd>
+          AAC es el códec más usado para pistas de audio en contenedores .mp4.</dd>
         <dt><em>output_file</em></dt><dd>ruta, nombre y extensión del output file</dd>
       </dl>
       <p>Para optimizar el archivo para transmisión, puedes agregar la siguiente preconfiguración.</p>
@@ -392,53 +392,53 @@
     <div class="hiding">
       <h5>H.264 de DCP</h5>
       <p><code>ffmpeg -i <em>archivo_ingreso_video</em>.mxf -i <em>archivo_ingreso_audio</em>.mxf -c:v libx264 -pix_fmt yuv420p -c:a aac <em>archivo_salida.mp4</em></code></p>
-      <p>Este comando va a transcodificar los archivos de audio y video albergados en MXF a un archivo codificado en H.264. ¡Aviso importante! Esta receta solo funciona en DCP This will transcode MXF wrapped video and audio files to an H.264 encoded MP4 file. Please note this only works for unencrypted, single reel DCPs.</p>
+      <p>Este comando va a transcodificar los archivos de audio y video albergados en MXF a un archivo codificado en H.264. ¡Aviso importante! Esta receta solo funciona en DCP no encriptados y que contengan un solo archivo de video y audio cada uno.</p>
       <dl>
-        <dt>ffmpeg</dt><dd>inicia el commando</dd>
-        <dt>-i <em>input_video_file</em></dt><dd>path and name of the video input file. This extension must be <code>.mxf</code></dd>
-        <dt>-i <em>input_audio_file</em></dt><dd>path and name of the audio input file. This extension must be <code>.mxf</code></dd>
-        <dt>-c:v libx264</dt><dd>transcodes video to H.264</dd>
-        <dt>-pix_fmt yuv420p</dt><dd>sets pixel format to yuv420p for greater compatibility with media players</dd>
-        <dt>-c:a aac</dt><dd>re-encodes using the AAC audio codec<br>
-        Note that sadly MP4 cannot contain sound encoded by a PCM (Pulse-Code Modulation) audio codec</dd>
-        <dt><em>documento_salida.mp4</em></dt><dd>path, name and .mp4 extension of the output file</dd>
+        <dt>ffmpeg</dt><dd>comando de inicio</dd>
+        <dt>-i <em>archivo_ingreso_video</em></dt><dd>ruta y nombre del archivo de ingreso de video. La extensión debe ser <code>.mxf</code></dd>
+        <dt>-i <em>archivo_ingreso_audio</em></dt><dd>ruta y nombre del archivo de ingreso de audio. La extensión debe ser <code>.mxf</code></dd>
+        <dt>-c:v libx264</dt><dd>indica que transcodifique el video a H.264</dd>
+        <dt>-pix_fmt yuv420p</dt><dd>indica que el esquema de submuestreo de chroma será yuv420p para mejor compatibilidad con los reproductores</dd>
+        <dt>-c:a aac</dt><dd>indica la transcodificación usando códec AAC para audio<br>
+        Ten en cuenta que, desafortunadamente, el contenedor MP4 no puede albergar códec de audio PCM (Pulse-Code Modulation)</dd>
+        <dt><em>archivo_salida.mp4</em></dt><dd>ruta, nombre y extensión .mp4 para el archivo de salida</dd>
       </dl>
-      <p>Variation: Copy PCM audio streams by using Matroska instead of the MP4 container</p>
-      <p><code>ffmpeg -i <em>input_video_file</em>.mxf -i <em>input_audio_file</em>.mxf -c:v libx264 -pix_fmt yuv420p -c:a copy <em>documento_salida.mkv</em></code></p>
+      <p>Variación: Se pueden copiar los flujos de audio originales en PCM si usas el contenedor Matroska en vez del MP4.</p>
+      <p><code>ffmpeg -i <em>input_video_file</em>.mxf -i <em>input_audio_file</em>.mxf -c:v libx264 -pix_fmt yuv420p -c:a copy <em>archivo_salida.mkv</em></code></p>
       <dl>
         <dt>-c:a copy</dt><dd>vuelve a codificar utilizando el mismo códec de audio</dd>
-        <dt><em>documento_salida.mkv</em></dt><dd>path, name and .mkv extension of the output file</dd>
+        <dt><em>documento_salida.mkv</em></dt><dd>ruta, nombre y extensión .mkv para el archivo de salida</dd>
       </dl>
       <p class="link"></p>
     </div>
     <!-- ends H.264 from DCP -->
 
     <!-- Transcode to FFV1.mkv -->
-    <label class="recipe" for="create_FFV1_mkv">Transcode your file with the FFV1 Version 3 Codec in a Matroska container</label>
+    <label class="recipe" for="create_FFV1_mkv">Transcodifica tu archivo con la versión 3 del códec en tu contenedor Matroska</label>
     <input type="checkbox" id="create_FFV1_mkv">
     <div class="hiding">
-      <h5>Create FFV1 Version 3 video in a Matroska container with framemd5 of input</h5>
+      <h5>Crea un video en códec FFV1 versión 3 en el contenedor Matroska con entrada framemd5</h5>
       <p><code>ffmpeg -i <em>documento_ingreso</em> -map 0 -dn -c:v ffv1 -level 3 -g 1 -slicecrc 1 -slices 16 -c:a copy <em>documento_salida</em>.mkv -f framemd5 -an <em>framemd5_documento_salida</em></code></p>
-      <p>This will losslessly transcode your video with the FFV1 Version 3 codec in a Matroska container. In order to verify losslessness, a framemd5 of the source video is also generated. For more information on FFV1 encoding, <a href="https://trac.ffmpeg.org/wiki/Encode/FFV1" target="_blank">try the FFmpeg wiki</a>.</p>
+      <p>Este comando va a transcodificar sin pérdida el video al códec FFV1 versión 3 en contenedor Matroska. Para verificar que el archivo sea de compresión sin pérdida, se genera un framemd5 del video de origen. Para más información de la codificación de FFV1 revisa la página de <a href="https://trac.ffmpeg.org/wiki/Encode/FFV1" target="_blank">FFmpeg wiki</a>.</p>
       <dl>
         <dt>ffmpeg</dt><dd>inicia el commando.</dd>
-        <dt>-i <em>documento_ingreso</em></dt><dd>ruta y nombre del documento de ingreso file.</dd>
-        <dt>-map 0</dt><dd>Map all streams that are present in the input file. This is important as FFmpeg will map only one stream of each type (video, audio, subtitles) by default to the output video.</dd>
-        <dt>-dn</dt><dd>ignore data streams (data no). The Matroska container does not allow data tracks.</dd>
-        <dt>-c:v ffv1</dt><dd>specifies the FFV1 video codec.</dd>
-        <dt>-level 3</dt><dd>specifies Version 3 of the FFV1 codec.</dd>
-        <dt>-g 1</dt><dd>specifies intra-frame encoding, or GOP=1.</dd>
-        <dt>-slicecrc 1</dt><dd>Adds CRC information for each slice. This makes it possible for a decoder to detect errors in the bitstream, rather than blindly decoding a broken slice. (Read more <a href="http://ndsr.nycdigital.org/diving-in-head-first/" target="_blank">here</a>).</dd>
-        <dt>-slices 16</dt><dd>Each frame is split into 16 slices. 16 is a good trade-off between filesize and encoding time.</dd>
-        <dt>-c:a copy</dt><dd>copies all mapped audio streams.</dd>
-        <dt><em>documento_salida</em>.mkv</dt><dd>path and name of the output file. Use the <code>.mkv</code> extension to save your file in a Matroska container.</dd>
-        <dt>-f framemd5</dt><dd>Decodes video with the framemd5 muxer in order to generate MD5 checksums for every frame of your input file. This allows you to verify losslessness when compared against the framemd5s of the output file.</dd>
-        <dt>-an</dt><dd>ignores the audio stream when creating framemd5 (audio no)</dd>
-        <dt><em>framemd5_documento_salida</em></dt><dd>path, name and extension of the framemd5 file.</dd>
+        <dt>-i <em>documento_ingreso</em></dt><dd>ruta y nombre del documento ingresado</dd>
+        <dt>-map 0</dt><dd>Asigna todos los flujos presentes en el archivo de ingreo. Esto es importante, porque FFmpeg solo asignaría un flujo de cada tipo de manera predeterminada al archivo de salida.</dd>
+        <dt>-dn</dt><dd>ignorar pistas de datos. El contenedor Matroska no puede albergar pistas de datos.</dd>
+        <dt>-c:v ffv1</dt><dd>especifíca el códec de video en FFV1.</dd>
+        <dt>-level 3</dt><dd>especifíca la versión 3 del códec FFV1.</dd>
+        <dt>-g 1</dt><dd>especifíca la codificación entre fotogramas o GOP=1.</dd>
+        <dt>-slicecrc 1</dt><dd>Añade información CRC (verificación de redundancia cíclica por sus siglas en inglés) para cada sección. Esto posibilita que el decodificador pueda detectar errores en el flujo de bits, en vez de decodificar secciones con errores. (Puedes leer más <a href="http://ndsr.nycdigital.org/diving-in-head-first/" target="_blank">aquí</a>).</dd>
+        <dt>-slices 16</dt><dd>Cada fotograma es divido en 16 secciones. 16 es una buena solución intermedia entre el peso de archivo y el tiempo de codificación.</dd>
+        <dt>-c:a copy</dt><dd>vuelve a codificar utilizando el mismo códec de audio</dd>
+        <dt><em>documento_salida</em>.mkv</dt><dd>ruta y nombre del documento de salida. Usa la extensión <code>.mkv</code> para guardar tu documento en contenedor Matroska.</dd>
+        <dt>-f framemd5</dt><dd>Decodifica el video con el mezclador framemd5 para generar checksums MD5 para cada fotograma del documento ingresado. Esto permite verificar la compresión sin pérdida mediante comparación con los framemd5s del documento de salida.</dd>
+        <dt>-an</dt><dd>ignora la pista de audio al crear framemd5 (audio no)</dd>
+        <dt><em>framemd5_documento_salida</em></dt><dd>ruta, nombre y extensión del documento de framemd5.</dd>
       </dl>
       <p class="link"></p>
     </div>
-    <!-- ends Transcode to FFV1.mkv-->
+    <!-- ends Transcodificación a FFV1.mkv-->
 
     <!-- Rip DVD -->
     <label class="recipe" for="dvd_to_file">Convert DVD to H.264</label>
