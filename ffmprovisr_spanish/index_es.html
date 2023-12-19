@@ -338,29 +338,29 @@
       <p>Para optimizar el archivo para transmisión, puedes agregar la siguiente preconfiguración.</p>
       <p><code>ffmpeg -i <em>input_file</em> -c:v libx264 -pix_fmt yuv420p -c:a aac -movflags +faststart <em>output_file</em></code></p>
       <dl>
-        <dt>-movflags +faststart</dt><dd>esta indicación le pide a FFmpeg que mueva parte de los metadatos esenciales al inicio del archivo, lo cual permite iniciar el visionado antes de que el archive termine de descargar. Esto es una característica ideal para transmisión.</dd>
+        <dt>-movflags +faststart</dt><dd>esta indicación le pide a FFmpeg que mueva parte de los metadatos esenciales al inicio del archivo, lo cual permite iniciar el visionado antes de que el archivo termine de descargar. Esto es una característica ideal para transmisión.</dd>
       </dl>
-      <p>In order to use the same basic command to make a higher quality file, you can add some of these presets:</p>
+      <p>Se puede usar el mismo comando básico para generar un archivo de mayor calidad mediante alguna de las preconfiguraciones.</p>
       <p><code>ffmpeg -i <em>input_file</em> -c:v libx264 -pix_fmt yuv420p -preset veryslow -crf 18 -c:a aac <em>output_file</em></code></p>
       <dl>
-        <dt>-preset <em>veryslow</em></dt><dd>This option tells FFmpeg to use the slowest preset possible for the best compression quality.<br>
-        Available presets, from slowest to fastest, are: <code>veryslow</code>, <code>slower</code>, <code>slow</code>, <code>medium</code>, <code>fast</code>, <code>faster</code>, <code>veryfast</code>, <code>superfast</code>, <code>ultrafast</code>.</dd>
-        <dt>-crf <em>18</em></dt><dd>Specifying a lower CRF will make a larger file with better visual quality. For H.264 files being encoded with a 4:2:0 chroma subsampling scheme (i.e., using <code>-pix_fmt yuv420p</code>), the scale ranges between 0-51 for 8-bit content, with 0 being lossless and 51 the worst possible quality.<br>
-          If no crf is specified, <code>libx264</code> will use a default value of 23. 18 is often considered a “visually lossless” compression.</dd>
+        <dt>-preset <em>veryslow</em></dt><dd>Esta indicación le pide a FFmpeg que use la prconfiguración más lenta posible para lograr una compresión de alta calidad.<br>
+        Las preconfiguraciones disponibles desde la más lento hasta la más rápida son, <code>veryslow</code>, <code>slower</code>, <code>slow</code>, <code>medium</code>, <code>fast</code>, <code>faster</code>, <code>veryfast</code>, <code>superfast</code>, <code>ultrafast</code>.</dd>
+        <dt>-crf <em>18</em></dt><dd>Si especificar un CRF bajo vas a obtener un archivo pesado con una mejor calidad visual. Para archivos H.264 codificados con submuestreo de chroma en 4:2:0 (por ejemplo, usando <code>-pix_fmt yuv420p</code>), la escala se sitúa entre 0-51 para contenido de 8-bit, siendo 0 compresión sin pérdida y 51 la peor calidad posible.<br>
+          Si el CRF no está especificado, <code>libx264</code> usará el valor predeterminado de 23. 18 es considerado como compresión "visualmente sin pérdida".</dd>
       </dl>
-      <p>By default, this recipe will include one track of each type (e.g. audio, video) in the output file. If you wish to include more tracks, consult the <a href="#stream-mapping">entry on stream mapping</a>.</p>
-      <p>For more information, see the <a href="https://trac.ffmpeg.org/wiki/Encode/H.264" target="_blank">FFmpeg and H.264 Encoding Guide</a> on the FFmpeg wiki.</p>
+      <p>Por defecto, esta receta de comando incluirá una sola pista de cada tipo de flujos, por ejemplo, de audio y video, en el output file. Si deseas incluir más pistas, consulta la <a href="#stream-mapping">entrada de Asignación de flujos</a>.</p>
+      <p>Para más información, puedes revisar la <a href="https://trac.ffmpeg.org/wiki/Encode/H.264" target="_blank">guía de codificación de FFmpeg y H.264</a> en FFmpeg wiki.</p>
       <p class="link"></p>
     </div>
-    <!-- ends Transcode to H.264 -->
+    <!-- Fin Transcodificación a H.264 -->
 
-    <!-- Transcode to H.264 or H.265 using the GPU -->
-    <label class="recipe" for="transcode_gpu">Transcode to H.264/H.265 using the GPU</label>
+    <!-- Transcodificación a H.264 o H.265 usando GPU -->
+    <!-- <label class="recipe" for="transcode_gpu">Transcodificación a H.264/H.265 usando GPU</label>
     <input type="checkbox" id="transcode_gpu">
     <div class="hiding">
-      <h5>Transcode to H.264/H.265 using the GPU</h5>
+      <h5>Transcodificación a H.264/H.265 usando GPU</h5>
       <p><code>ffmpeg -i <em>input_file</em> -c:v h264_nvenc -preset llhq -rc:v vbr_hq -cq:v 19 -b:v 8000k -maxrate:v 12000k -profile:v high -c:a copy <em>output_file</em></code></p>
-      <p>This command takes an input file and transcodes it to H.264 using the encoding functionality of an Nvidia GPU (without transcoding the audio). If you're using H.264 with AAC or AC3 audio, you can output to an .mp4 file; if you're using HEVC and/or more exotic audio, you should output to .mkv. While Nvidia's fixed-function hardware can be 10x as performant as encoding on the CPU, it requires a few more parameters in order to optimize quality at lower bitrates.</p>
+      <p>Este comando transcodifica el documento ingresado a H.264 usando la funcionalidad de codificación de This command takes an input file and transcodes it to H.264 using the encoding functionality of an Nvidia GPU (without transcoding the audio). If you're using H.264 with AAC or AC3 audio, you can output to an .mp4 file; if you're using HEVC and/or more exotic audio, you should output to .mkv. While Nvidia's fixed-function hardware can be 10x as performant as encoding on the CPU, it requires a few more parameters in order to optimize quality at lower bitrates.</p>
       <dl>
         <dt>ffmpeg</dt><dd>starts the command</dd>
         <dt>-i <em>input_file</em></dt><dd>path, name and extension of the input file</dd>
@@ -383,16 +383,16 @@
       </dl>
       <p>Much of the information in this entry was taken from <a href="https://superuser.com/a/1236387" target="_blank">this superuser.com post</a> provided by an Nvidia developer, one of the best sources of information on the ffmpeg Nvidia encoders.</p>
       <p class="link"></p>
-    </div>
+    </div> -->
     <!-- ends Transcode to H.264 or H.265 using the GPU -->
 
     <!-- H.264 from DCP -->
-    <label class="recipe" for="dcp_to_h264">Transcode from DCP to an H.264 access file</label>
+    <label class="recipe" for="dcp_to_h264">Transcodificación de DCP a un archivo de acceso en H.264 </label>
     <input type="checkbox" id="dcp_to_h264">
     <div class="hiding">
-      <h5>H.264 from DCP</h5>
-      <p><code>ffmpeg -i <em>input_video_file</em>.mxf -i <em>input_audio_file</em>.mxf -c:v libx264 -pix_fmt yuv420p -c:a aac <em>output_file.mp4</em></code></p>
-      <p>This will transcode MXF wrapped video and audio files to an H.264 encoded MP4 file. Please note this only works for unencrypted, single reel DCPs.</p>
+      <h5>H.264 de DCP</h5>
+      <p><code>ffmpeg -i <em>archivo_ingreso_video</em>.mxf -i <em>archivo_ingreso_audio</em>.mxf -c:v libx264 -pix_fmt yuv420p -c:a aac <em>archivo_salida.mp4</em></code></p>
+      <p>Este comando va a transcodificar los archivos de audio y video albergados en MXF a un archivo codificado en H.264. ¡Aviso importante! Esta receta solo funciona en DCP This will transcode MXF wrapped video and audio files to an H.264 encoded MP4 file. Please note this only works for unencrypted, single reel DCPs.</p>
       <dl>
         <dt>ffmpeg</dt><dd>starts the command</dd>
         <dt>-i <em>input_video_file</em></dt><dd>path and name of the video input file. This extension must be <code>.mxf</code></dd>
