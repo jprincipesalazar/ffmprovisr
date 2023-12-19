@@ -646,7 +646,7 @@
       <dl>
         <dt>ffmpeg</dt><dd>inicia el commando</dd>
         <dt>-i <em>documento_ingreso</em></dt><dd>ruta y nombre del documento de ingreso file</dd>
-        <dt>-filter:v "hflip,vflip"</dt><dd>flips the image horizontally and vertically<br>By using only one of the parameters hflip or vflip for filtering the image is flipped on that axis only. The quote marks are not mandatory.</dd>
+        <dt>-filter:v "hflip,vflip"</dt><dd>voltea la imagen horizontal y verticalmente<br>Al usar solo uno de los parámetros hflip o vflip para filtrar, la imagen se voltea solo en ese axis Las comillas no son obligatorias.</dd>
         <dt>-c:a copy</dt><dd>vuelve a codificar utilizando el mismo códec de audio<br>
          Para videos sin sonido, puede reemplazar <code>-c:a copy</code> con <code>-an</code>.</dd>
         <dt><em>documento_salida</em></dt><dd>ruta y nombre del documento de salida</dd>
@@ -655,32 +655,32 @@
     </div>
     <!-- Fin Voltear imagen -->
 
-    <!-- SD to HD -->
-    <label class="recipe" for="SD_HD_2">Transform SD to HD with pillarbox</label>
+    <!-- SD (definición estándar) a HD (definición alta) -->
+    <label class="recipe" for="SD_HD_2">Transforma un vídeo de definición estándar a definición alta por medio del formato pillarbox</label>
     <input type="checkbox" id="SD_HD_2">
     <div class="hiding">
-      <h5>Transform SD into HD with pillarbox</h5>
-      <p>Transform a SD video file with 4:3 aspect ratio into an HD video file with 16:9 aspect ratio by correct pillarboxing.</p>
+      <h5>Transforma SD en HD por medio del formato pillarbox</h5>
+      <p>Transforma un video SD (definición estándar) con relación de aspecto 4:3 a un video HD (definición alta) con relación de aspecto 16:9 por medio del formato correcto de pillarboxing.</p>
       <p><code>ffmpeg -i <em>documento_ingreso</em> -filter:v "colormatrix=bt601:bt709, scale=1440:1080:flags=lanczos, pad=1920:1080:240:0" -c:a copy <em>documento_salida</em></code></p>
       <dl>
         <dt>ffmpeg</dt><dd>inicia el commando</dd>
         <dt>-i <em>documento_ingreso</em></dt><dd>ruta y nombre del documento de ingreso file</dd>
-        <dt>-filter:v "colormatrix=bt601:bt709, scale=1440:1080:flags=lanczos, pad=1920:1080:240:0"</dt><dd>set colour matrix, video scaling and padding<br>Three filters are applied:
+        <dt>-filter:v "colormatrix=bt601:bt709, scale=1440:1080:flags=lanczos, pad=1920:1080:240:0"</dt><dd>establecer matriz de color, escala de video y relleno<br>Se applican tres filtros:
           <ol>
-            <li>The luma coefficients are modified from SD video (according to Rec. 601) to HD video (according to Rec. 709) by a color matrix. Note that today Rec. 709 is often used also for SD and therefore you may cancel this parameter.</li>
-            <li>The scaling filter (<code>scale=1440:1080</code>) works for both upscaling and downscaling. We use the Lanczos scaling algorithm (<code>flags=lanczos</code>), which is slower but gives better results than the default bilinear algorithm.</li>
-            <li>The padding filter (<code>pad=1920:1080:240:0</code>) completes the transformation from SD to HD.</li>
+            <li>Los coeficientes luma se modifican de vídeo SD (según Rec. 601) a vídeo HD (según Rec. 709) mediante una matriz de color. Tenga en cuenta que hoy Rec. 709 se utiliza a menudo también para SD y por lo tanto puede cancelar este parámetro.</li>
+            <li>El filtro de escala(<code>scale=1440:1080</code>) funciona tanto para aumentar como para reducir la escala. Usamos el algoritmo de escalado de Lanczos (<code>flags=lanczos</code>), que funciona más lento pero da mejores resultados que el algoritmo bilineal predeterminado..</li>
+            <li>El filtro de relleno (<code>pad=1920:1080:240:0</code>) completa la transformación de SD asi a HD.</li>
           </ol></dd>
         <dt>-c:a copy</dt><dd>vuelve a codificar utilizando el mismo códec de audio<br>
          Para videos sin sonido, puede reemplazar <code>-c:a copy</code> with <code>-an</code>.</dd>
         <dt><em>documento_salida</em></dt><dd>ruta y nombre del documento de salida</dd>
       </dl>
-      <p>If your source is interlaced, you will want to deinterlace prior to scaling. In that case, your command would look like this:</p>
+      <p>Si su documento de inicio está entrelazado, querrá desentrelazarla antes de escalarlo. En ese caso, su comando se vería así:</p>
       <p><code>ffmpeg -i <em>documento_ingreso</em> -c:v libx264 -filter:v "yadif, colormatrix=bt601:bt709, scale=1440:1080:flags=lanczos, pad=1920:1080:240:0" -c:a copy <em>documento_salida</em></code></p>
       <p>See the <a href="#ntsc_to_h264">Interlaced NTSC to MP4 recipe</a> for a fuller explanation of the deinterlacing step.</p>
       <p class="link"></p>
     </div>
-    <!-- ends SD to HD -->
+    <!-- fin SD a HD -->
 
     <!-- Change display aspect ratio without re-encoding video-->
     <label class="recipe" for="change_DAR">Change display aspect ratio without re-encoding</label>
