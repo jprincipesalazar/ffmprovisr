@@ -884,34 +884,34 @@
     </div>
     <!-- ends Crop video -->
 
-    <!-- Change video color to black and white -->
-    <label class="recipe" for="col_change">Change video color to black and white</label>
+    <!-- Cambiar el color del vídeo a blanco y negro -->
+    <label class="recipe" for="col_change">Cambiar el color del vídeo a blanco y negro</label>
     <input type="checkbox" id="col_change">
     <div class="hiding">
-      <h5>Change video color to black and white</h5>
+      <h5>Cambia el color del vídeo a blanco y negro</h5>
       <p><code>ffmpeg -i <em>documento_ingreso</em> -filter_complex hue=s=0 -c:a copy <em>documento_salida</em></code></p>
-      <p>A basic command to alter color hue to black and white using filter_complex (credit @FFMPEG via Twitter).</p>
+      <p>Un comando básico para alterar el tono del color a blanco y negro usando filter_complex (credito @FFMPEG via Twitter).</p>
       <dl>
         <dt>ffmpeg</dt><dd>inicia el commando</dd>
         <dt>-i <em>documento_ingreso</em></dt><dd>ruta y nombre del documento de ingreso file</dd>
-        <dt>-filter_complex hue=s=0</dt><dd>uses filter_complex command to set the hue to black and white</dd>
-        <dt>-c:a copy</dt><dd>copies the encode settings of the documento_ingreso to the documento_salida</dd>
-        <dt><em>documento_salida</em></dt><dd>path, name and extension of the documento_salida</dd>
+        <dt>-filter_complex hue=s=0</dt><dd>usa el comando filter_complex para establecer el tono en blanco y negro</dd>
+        <dt>-c:a copy</dt><dd>copia la configuración de codificación del documento_ingreso al documento_salida</dd>
+        <dt><em>documento_salida</em></dt><dd>ruta y nombre del documento de salida</dd>
       </dl>
-      <p>An alternative that preserves interlacing information for a ProRes 422 HQ file generated, for example, from a tape master (credit Dave Rice):</p>
+      <p>Una alternativa que conserva la información de entrelazado para un documento ProRes 422 HQ generado, por ejemplo, a partir de una cinta maestra (credito Dave Rice):</p>
       <p><code>ffmpeg -i <em>documento_ingreso</em> -c:v prores_ks -flags +ildct -map 0 -c:a copy -profile:v 3 -vf hue=s=0 <em>documento_salida</em></code></p>
       <dl>
         <dt>ffmpeg</dt><dd>inicia el commando</dd>
         <dt>-i <em>documento_ingreso</em></dt><dd>ruta y nombre del documento de ingreso file</dd>
-        <dt>-c:v prores_ks</dt><dd>encodes the video to ProRes (prores_ks marks the stream as interlaced, unlike prores)</dd>
-        <dt>-flags +ildct</dt><dd>ensures that the documento_salida has interlaced field encoding, using interlace aware discrete cosine transform</dd>
-        <dt>-map 0</dt><dd>ensures ffmpeg maps all streams of the documento_ingreso to the documento_salida</dd>
-        <dt>-c:a copy</dt><dd>copies the encode settings of the documento_ingreso to the documento_salida</dd>
+        <dt>-c:v prores_ks</dt><dd>codifica el vídeo a ProRes (prores_ks marca la secuencia como entrelazada, a diferencia de prores)</dd>
+        <dt>-flags +ildct</dt><dd>garantiza que el documento_salida tenga codificación  entrelazada, utilizando la transformada de coseno discreta con reconocimiento de entrelazado</dd>
+        <dt>-map 0</dt><dd>garantiza que ffmpeg asigne todos los flujos de document_ingreso a document_output</dd>
+        <dt>-c:a copy</dt><dd>copia la configuración de codificación del documento_ingreso al documento_salida/dd>
         <dt><em>documento_salida</em></dt><dd>ruta y nombre del documento de salida</dd>
       </dl>
       <p class="link"></p>
     </div>
-    <!-- ends Change video color to black and white -->
+    <!-- fin Cambiar el color del vídeo a blanco y negro-->
 
     </div>
     <div class="well">
