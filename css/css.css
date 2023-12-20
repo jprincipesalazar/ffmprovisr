@@ -260,3 +260,21 @@ input[type=checkbox]:checked + div {
   overflow: hidden;
   transition: opacity .5s linear, height .5s linear;
 }
+
+.eslangbutton {
+  background-color: #ffffff; /* Green */
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.eslangbutton1 {border-radius: 12px;}
+
+.recipe:hover, .eslangbutton:hover {
+  background-color: #449d44;
+}
