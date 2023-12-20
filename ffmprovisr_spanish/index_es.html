@@ -702,7 +702,7 @@
     <!-- Fin Cambiar la relación de aspecto para visionado sin volver a codificar el video -->
 
     <!-- Convert colorspace -->
-    <label class="recipe" for="convert-colorspace">Convert colorspace of video</label>
+    <!-- <label class="recipe" for="convert-colorspace">Convert colorspace of video</label>
     <input type="checkbox" id="convert-colorspace">
     <div class="hiding">
       <h5>Transcode video to a different colorspace</h5>
@@ -751,11 +751,11 @@
       <p id="fn1" class="footnote">1. Out of step with the regular pattern, <code>-color_trc</code> doesn’t accept <code>bt470bg</code>; it is instead here referred to directly as gamma.<br>
       In the Rec.601 standard, 525-line/NTSC and 625-line/PAL video have assumed gammas of 2.2 and 2.8 respectively. <a href="#ref1" title="Jump back.">↩</a></p>
       <p class="link"></p>
-    </div>
+    </div> -->
     <!-- ends Convert colorspace -->
 
     <!-- Modify speed -->
-    <label class="recipe" for="modify_speed">Modify image and sound speed</label>
+    <!-- <label class="recipe" for="modify_speed">Modify image and sound speed</label>
     <input type="checkbox" id="modify_speed">
     <div class="hiding">
       <h5>Modify image and sound speed</h5>
@@ -776,11 +776,11 @@
         <dt><em>documento_salida</em></dt><dd>ruta y nombre del documento de salida</dd>
       </dl>
       <p class="link"></p>
-    </div>
+    </div> -->
     <!-- ends Modify speed -->
 
     <!-- Fade both video and audio streams -->
-    <label class="recipe" for="fade_streams">Fade both video and audio streams</label>
+    <!-- <label class="recipe" for="fade_streams">Fade both video and audio streams</label>
     <input type="checkbox" id="fade_streams">
     <div class="hiding">
       <h5>Fade both video and audio streams</h5>
@@ -796,11 +796,11 @@
           <dt><em>documento_salida</em></dt><dd>path, name and extension of the documento_salida</dd>
       </dl>
       <p class="link"></p>
-    </div>
+    </div> -->
     <!-- ends Fade both video and audio streams -->
 
     <!-- Synchronize video and audio streams -->
-    <label class="recipe" for="sync_streams">Synchronize video and audio streams</label>
+    <!-- <label class="recipe" for="sync_streams">Synchronize video and audio streams</label>
     <input type="checkbox" id="sync_streams">
     <div class="hiding">
       <h5>Synchronize video and audio streams</h5>
@@ -816,11 +816,11 @@
         <dt><em>documento_salida_resync</em></dt><dd>path, name and extension of the documento_salida</dd>
       </dl>
       <p class="link"></p>
-    </div>
+    </div> -->
     <!-- ends Synchronize video and audio streams -->
 
     <!-- Make stream properties explicate -->
-    <label class="recipe" for="clarify_stream">Clarify stream properties</label>
+    <!-- <label class="recipe" for="clarify_stream">Clarify stream properties</label>
     <input type="checkbox" id="clarify_stream">
     <div class="hiding">
       <h5>Set stream properties</h5>
@@ -853,7 +853,7 @@
       </dl>
       <p>The possible values for <code>-color_primaries</code>, <code>-color_trc</code>, and <code>-field_order</code> are given in the <a href="https://ffmpeg.org/ffmpeg-all.html#toc-Codec-Options" target="_blank">Codec Options</a> section of the FFmpeg docs - scroll down to near the bottom of the section.</p>
       <p class="link"></p>
-    </div>
+    </div> -->
     <!-- ends Make stream properties explicate -->
 
     <!-- Recortar video -->
@@ -915,12 +915,12 @@
     </div>
     <!-- fin Cambiar el color del vídeo a blanco y negro-->
 
-    </div>
+    <!-- </div>
     <div class="well">
-    <h2 id="audio-files">Change or view audio properties</h2>
+    <h2 id="audio-files">Change or view audio properties</h2> -->
 
     <!-- Extract audio from an AV file -->
-    <label class="recipe" for="extract_audio">Extract audio without loss from an AV file</label>
+    <!-- <label class="recipe" for="extract_audio">Extract audio without loss from an AV file</label>
     <input type="checkbox" id="extract_audio">
     <div class="hiding">
       <h5>Extract audio from an AV file</h5>
@@ -934,11 +934,11 @@
         <dt><em>documento_salida</em></dt><dd>ruta y nombre del documento de salida</dd>
       </dl>
       <p class="link"></p>
-    </div>
+    </div> -->
     <!-- ends Extract audio from am AV file -->
 
     <!-- Combine audio tracks  -->
-    <label class="recipe" for="combine_audio">Combine audio tracks</label>
+    <!-- <label class="recipe" for="combine_audio">Combine audio tracks</label>
     <input type="checkbox" id="combine_audio">
     <div class="hiding">
       <h5>Combine audio tracks into one in a video file</h5>
@@ -958,11 +958,11 @@
         <dt><em>documento_salida</em></dt><dd>path, name and extension of the video output file</dd>
       </dl>
       <p class="link"></p>
-    </div>
+    </div> -->
     <!-- ends Combine audio tracks -->
 
     <!-- phase shift -->
-    <label class="recipe" for="phase_shift">Inverses the audio phase of the second channel</label>
+    <!-- <label class="recipe" for="phase_shift">Inverses the audio phase of the second channel</label>
     <input type="checkbox" id="phase_shift">
     <div class="hiding">
       <h5>Flip audio phase shift</h5>
@@ -977,11 +977,11 @@
         <dt><em>output file</em></dt><dd>ruta y nombre del documento de salida</dd>
       </dl>
       <p class="link"></p>
-    </div>
+    </div> -->
     <!-- ends phase shift -->
 
     <!-- loudnorm metadata -->
-    <label class="recipe" for="loudnorm_metadata">Calculate Loudness Levels</label>
+    <!-- <label class="recipe" for="loudnorm_metadata">Calculate Loudness Levels</label>
     <input type="checkbox" id="loudnorm_metadata">
     <div class="hiding">
       <h5>Calculate Loudness Levels</h5>
@@ -997,11 +997,11 @@
         <dt><em>-f null -</em></dt><dd>sets the file output to null (since we are only interested in the metadata generated)</dd>
       </dl>
       <p class="link"></p>
-    </div>
+    </div> -->
     <!-- ends loudnorm metadata -->
 
     <!-- RIAA equalization -->
-    <label class="recipe" for="riaa_eq">RIAA Equalization</label>
+    <!-- <label class="recipe" for="riaa_eq">RIAA Equalization</label>
     <input type="checkbox" id="riaa_eq">
     <div class="hiding">
       <h5>RIAA Equalization</h5>
@@ -1014,11 +1014,11 @@
         <dt><em>documento_salida</em></dt><dd>path and name of output file</dd>
       </dl>
       <p class="link"></p>
-    </div>
+    </div> -->
     <!-- ends RIAA equalization -->
 
     <!-- CD De-emphasis -->
-    <label class="recipe" for="cd_eq">Reverse CD Pre-Emphasis</label>
+    <!--<label class="recipe" for="cd_eq">Reverse CD Pre-Emphasis</label>
     <input type="checkbox" id="cd_eq">
     <div class="hiding">
       <h5>Reverse CD Pre-Emphasis</h5>
@@ -1031,11 +1031,11 @@
         <dt><em>documento_salida</em></dt><dd>path and name of output file</dd>
       </dl>
       <p class="link"></p>
-    </div>
+    </div> -->
     <!-- CD De-emphasis -->
 
     <!-- one pass loudnorm -->
-    <label class="recipe" for="loudnorm_one_pass">One Pass Loudness Normalization</label>
+    <!-- <label class="recipe" for="loudnorm_one_pass">One Pass Loudness Normalization</label>
     <input type="checkbox" id="loudnorm_one_pass">
     <div class="hiding">
       <h5>One Pass Loudness Normalization</h5>
@@ -1051,11 +1051,11 @@
         <dt><em>documento_salida</em></dt><dd>path, name and extension for output file</dd>
       </dl>
       <p class="link"></p>
-    </div>
+    </div> -->
     <!-- ends one pass loudnorm -->
 
     <!-- two pass loudnorm -->
-    <label class="recipe" for="loudnorm_two_pass">Two Pass Loudness Normalization</label>
+    <!-- <label class="recipe" for="loudnorm_two_pass">Two Pass Loudness Normalization</label>
     <input type="checkbox" id="loudnorm_two_pass">
     <div class="hiding">
       <h5>Two Pass Loudness Normalization</h5>
@@ -1077,11 +1077,11 @@
         <dt><em>documento_salida</em></dt><dd>path, name and extension for output file</dd>
       </dl>
       <p class="link"></p>
-    </div>
+    </div> -->
     <!-- ends two pass loudnorm -->
 
     <!-- Fix A/V async 1 -->
-    <label class="recipe" for="avsync_aresample">Fix A/V sync issues by resampling audio</label>
+    <!-- <label class="recipe" for="avsync_aresample">Fix A/V sync issues by resampling audio</label>
     <input type="checkbox" id="avsync_aresample">
     <div class="hiding">
       <h5>Fix AV Sync: Resample audio</h5>
@@ -1095,15 +1095,15 @@
         <dt><em>documento_salida</em></dt><dd>ruta y nombre del documento de salida. Try different file extensions such as mkv, mov, mp4, or avi.</dd>
       </dl>
       <p class="link"></p>
-    </div>
+    </div> -->
     <!-- ends Fix A/V async 1 -->
 
-    </div>
+    <!-- </div>
     <div class="well">
-    <h2 id="join-trim">Join, trim, or create an excerpt</h2>
+    <h2 id="join-trim">Join, trim, or create an excerpt</h2> -->
 
     <!-- Join files of the same type together -->
-    <label class="recipe" for="join_files">Join (concatenate) two or more files of the same type</label>
+    <!-- <label class="recipe" for="join_files">Join (concatenate) two or more files of the same type</label>
     <input type="checkbox" id="join_files">
     <div class="hiding">
       <h5>Join files together</h5>
@@ -1128,11 +1128,11 @@
       </dl>
       <p>For more information, see the <a href="https://trac.ffmpeg.org/wiki/Concatenate" target="_blank">FFmpeg wiki page on concatenating files</a>.</p>
       <p class="link"></p>
-    </div>
+    </div> -->
     <!-- ends Join files of the same type together -->
 
     <!-- Join files of different types together -->
-    <label class="recipe" for="join_different_files">Join (concatenate) two or more files of different types</label>
+    <!-- <label class="recipe" for="join_different_files">Join (concatenate) two or more files of different types</label>
      <input type="checkbox" id="join_different_files">
      <div class="hiding">
       <h5>Join files together</h5>
@@ -1187,11 +1187,11 @@
       <p>Note that the <code>fps</code> filter will drop or repeat frames as necessary in order to achieve the desired frame rate - see the FFmpeg <a href="https://ffmpeg.org/ffmpeg-filters.html#fps-1" target="_blank">fps docs</a> for more details.</p>
       <p>For more information, see the <a href="https://trac.ffmpeg.org/wiki/Concatenate#differentcodec" target="_blank">FFmpeg wiki page on concatenating files of different types</a>.</p>
       <p class="link"></p>
-    </div>
+    </div> -->
     <!-- ends Join files of the different types together -->
 
     <!-- Split file into segments -->
-    <label class="recipe" for="segment_file">Split one file into several smaller segments</label>
+    <!-- <label class="recipe" for="segment_file">Split one file into several smaller segments</label>
     <input type="checkbox" id="segment_file">
     <div class="hiding">
       <h5>Split file into segments</h5>
@@ -1218,11 +1218,11 @@
         </dd>
       </dl>
       <p class="link"></p>
-    </div>
+    </div> -->
     <!-- ends Split file into segments -->
 
     <!-- Trim -->
-    <label class="recipe" for="trim">Trim file</label>
+    <!-- <label class="recipe" for="trim">Trim file</label>
     <input type="checkbox" id="trim">
     <div class="hiding">
       <h5>Trim a video without re-encoding</h5>
@@ -1245,11 +1245,11 @@
       </dl>
       <p>Note: In order to keep the original timestamps, without trying to sanitize them, you may add the <code>-copyts</code> option.</p>
       <p class="link"></p>
-    </div>
+    </div> -->
     <!-- ends Trim -->
 
     <!-- Excerpt from beginning -->
-    <label class="recipe" for="excerpt_from_start">Create an excerpt, starting from the beginning of the file</label>
+    <!-- <label class="recipe" for="excerpt_from_start">Create an excerpt, starting from the beginning of the file</label>
     <input type="checkbox" id="excerpt_from_start">
     <div class="hiding">
       <h5>Excerpt from beginning</h5>
@@ -1264,11 +1264,11 @@
         <dt><em>documento_salida</em></dt><dd>ruta y nombre del documento de salida</dd>
       </dl>
       <p class="link"></p>
-    </div>
+    </div> -->
     <!-- ends Excerpt from beginning -->
 
     <!-- Excerpt to end -->
-    <label class="recipe" for="excerpt_to_end">Create a new file with the first five seconds trimmed off the original</label>
+    <!-- <label class="recipe" for="excerpt_to_end">Create a new file with the first five seconds trimmed off the original</label>
     <input type="checkbox" id="excerpt_to_end">
     <div class="hiding">
       <h5>Excerpt to end</h5>
@@ -1283,11 +1283,11 @@
         <dt><em>documento_salida</em></dt><dd>ruta y nombre del documento de salida</dd>
       </dl>
       <p class="link"></p>
-    </div>
+    </div> -->
     <!-- ends Excerpt to end -->
 
     <!-- Excerpt from end -->
-    <label class="recipe" for="excerpt_from_end">Create a new file with the final five seconds of the original</label>
+    <!-- <label class="recipe" for="excerpt_from_end">Create a new file with the final five seconds of the original</label>
     <input type="checkbox" id="excerpt_from_end">
     <div class="hiding">
       <h5>Excerpt from end</h5>
@@ -1302,11 +1302,11 @@
         <dt><em>documento_salida</em></dt><dd>ruta y nombre del documento de salida</dd>
       </dl>
       <p class="link"></p>
-    </div>
+    </div> -->
     <!-- ends Excerpt from end -->
 
     <!-- Trim start silence -->
-    <label class="recipe" for="trim_start_silence">Trim silence from beginning of an audio file</label>
+    <!-- <label class="recipe" for="trim_start_silence">Trim silence from beginning of an audio file</label>
     <input type="checkbox" id="trim_start_silence">
     <div class="hiding">
       <h5>Remove silent portion at the beginning of an audio file</h5>
@@ -1323,11 +1323,11 @@
         <dt>-c:a <em>your_codec_choice</em></dt><dd>This tells the filter what codec to use, and must be specified to avoid defaults. If you want 24 bit PCM, your value would be <code>-c:a pcm_s24le</code>.</dd>
         <dt><em>documento_salida</em></dt><dd>ruta y nombre del documento de salida (e.g. documento_salida.wav).</dd>
       </dl>
-    </div>
+    </div> -->
     <!-- ends Trim start silence -->
 
     <!-- Trim end silence -->
-    <label class="recipe" for="trim_end_silence">Trim silence from the end of an audio file</label>
+    <!-- <label class="recipe" for="trim_end_silence">Trim silence from the end of an audio file</label>
     <input type="checkbox" id="trim_end_silence">
     <div class="hiding">
       <h5>Remove silent portion from the end of an audio file</h5>
@@ -1346,7 +1346,7 @@
         <dt>-c:a <em>your_codec_choice</em></dt><dd>This tells the filter what codec to use, and must be specified to avoid defaults. If you want 24 bit PCM, your value would be <code>-c:a pcm_s24le</code>.</dd>
         <dt><em>documento_salida</em></dt><dd>ruta y nombre del documento de salida (e.g. documento_salida.wav).</dd>
       </dl>
-    </div>
+    </div> -->
     <!-- ends Trim end silence -->
 
     </div>
@@ -1354,7 +1354,7 @@
     <h2 id="interlacing">Work with interlaced video</h2>
 
     <!-- NTSC to H.264 -->
-    <label class="recipe" for="ntsc_to_h264">Upscaled, pillar-boxed HD H.264 access files from SD NTSC source</label>
+    <!-- <label class="recipe" for="ntsc_to_h264">Upscaled, pillar-boxed HD H.264 access files from SD NTSC source</label>
     <input type="checkbox" id="ntsc_to_h264">
     <div class="hiding">
       <h5>Upscaled, Pillar-boxed HD H.264 Access Files from SD NTSC source</h5>
@@ -1375,11 +1375,11 @@
       </dl>
       <p><strong>Note:</strong> the very same scaling filter also downscales a bigger image size into HD.</p>
       <p class="link"></p>
-    </div>
+    </div> -->
     <!-- ends NTSC to H.264 -->
 
     <!-- Deinterlace video -->
-    <label class="recipe" for="deinterlace">Deinterlace video</label>
+    <!-- <label class="recipe" for="deinterlace">Deinterlace video</label>
     <input type="checkbox" id="deinterlace">
     <div class="hiding">
       <h5>Deinterlace a video</h5>
@@ -1410,11 +1410,11 @@
         <img src="img/deinterlaced_video.png" alt="VLC screenshot of deinterlaced video">
       </div>
       <p class="link"></p>
-    </div>
+    </div> -->
     <!-- ends Deinterlace video -->
 
     <!-- Deinterlace video fields -->
-    <label class="recipe" for="deinterlace_fields">Deinterlace video fields to frames</label>
+    <!-- <label class="recipe" for="deinterlace_fields">Deinterlace video fields to frames</label>
     <input type="checkbox" id="deinterlace_fields">
     <div class="hiding">
       <h5>Deinterlace video fields to frames</h5>
@@ -1447,11 +1447,11 @@
         <img src="img/deinterlaced_video_frames.png" alt="VLC screenshot of deinterlaced video">
       </div>
       <p class="link"></p>
-    </div>
+    </div> -->
     <!-- ends Deinterlace video fields -->
 
     <!-- Inverse telecine -->
-    <label class="recipe" for="inverse-telecine">Inverse telecine</label>
+    <!-- <label class="recipe" for="inverse-telecine">Inverse telecine</label>
     <input type="checkbox" id="inverse-telecine">
     <div class="hiding">
       <h5>Inverse telecine a video file</h5>
@@ -1478,7 +1478,7 @@
         <img src="img/ivtc_result.gif" alt="GIF of video after inverse telecine">
       </div>
       <p class="link"></p>
-    </div>
+    </div> -->
     <!-- ends Inverse telecine -->
 
     <!-- Set field order -->
